@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.S13.drawings.pconrad.advanced;
+package edu.ucsb.cs56.w14.drawings.pconrad.advanced;
 
 import java.awt.Graphics2D;
 import java.awt.geom.Line2D;  // single lines
@@ -13,8 +13,8 @@ import java.awt.Stroke;
 import java.awt.BasicStroke;
 
 
-import edu.ucsb.cs56.S13.drawings.utilities.ShapeTransforms;
-import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
+import edu.ucsb.cs56.w14.drawings.utilities.ShapeTransforms;
+import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
 
 /**
  * A class with static methods for drawing various pictures

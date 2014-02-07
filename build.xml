@@ -1,6 +1,6 @@
 <project default="compile">
 
-  <!-- build.xml for lab04, S13, CS56
+  <!-- build.xml for lab06, w14, CS56
        author: Phill Conrad
        Note: for this lab, you should not need to edit this file -->
 
@@ -8,14 +8,14 @@
    <property environment="env"/> <!-- load the environment variables --> 
    <property name="username" value="${env.USER}"/> <!-- username -->
 
-   <property name="packagePrefix" value="edu.ucsb.cs56.S13.drawings" />
+   <property name="packagePrefix" value="edu.ucsb.cs56.w14.drawings" />
    <property name="pconradPackage" value="${packagePrefix}.pconrad" />
    <property name="myPackage" 
 	     value="${packagePrefix}.${username}" />
    
    <property name="webRoot" value="${env.HOME}/public_html/cs56" />
    <property name="webBaseURL" value="http://www.cs.ucsb.edu/~${env.USER}/cs56" />
-   <property name="projectName" value="lab05" /> 
+   <property name="projectName" value="lab06" /> 
    <property name="javadocDest" value="${webRoot}/${projectName}/javadoc" /> 
    <property name="javadocURL" value="${webBaseURL}/${projectName}/javadoc" /> 
    <property name="imagesDest" value="${webRoot}/${projectName}/images" /> 

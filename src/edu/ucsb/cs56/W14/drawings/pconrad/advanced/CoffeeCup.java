@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.S13.drawings.pconrad.advanced;
+package edu.ucsb.cs56.w14.drawings.pconrad.advanced;
 import java.awt.geom.GeneralPath; // combinations of lines and curves
 import java.awt.geom.AffineTransform; // translation, rotation, scale
 import java.awt.Shape; // general class for shapes
@@ -10,8 +10,8 @@ import java.awt.Rectangle;
 import java.awt.geom.PathIterator;
 import java.awt.geom.AffineTransform;
 
-import edu.ucsb.cs56.S13.drawings.utilities.ShapeTransforms;
-import edu.ucsb.cs56.S13.drawings.utilities.GeneralPathWrapper;
+import edu.ucsb.cs56.w14.drawings.utilities.ShapeTransforms;
+import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
 
 /**
    A Coffee Cup (wrapper around a General Path, implements Shape)

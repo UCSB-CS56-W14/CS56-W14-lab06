@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.S13.drawings.pconrad;
+package edu.ucsb.cs56.w14.drawings.pconrad;
 import javax.swing.*;
 
 /** SimpleGui1 comes from Head First Java 2nd Edition p. 355.

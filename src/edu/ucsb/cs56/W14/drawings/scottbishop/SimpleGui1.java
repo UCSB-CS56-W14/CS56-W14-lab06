@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.S13.drawings.scottbishop;
+package edu.ucsb.cs56.w14.drawings.scottbishop;
 import javax.swing.*;
 
 /** SimpleGui1 comes from Head First Java 2nd Edition p. 355.
