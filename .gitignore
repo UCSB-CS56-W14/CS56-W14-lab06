@@ -1,6 +1,7 @@
+*~
+javadoc/
+build/
+.ant-targets-build.xml
 *.class
+images/
 
-# Package Files #
-*.jar
-*.war
-*.ear

@@ -1,0 +1,247 @@
+<project default="compile">
+
+  <!-- build.xml for lab04, S13, CS56
+       author: Phill Conrad
+       Note: for this lab, you should not need to edit this file -->
+
+
+   <property environment="env"/> <!-- load the environment variables --> 
+   <property name="username" value="${env.USER}"/> <!-- username -->
+
+   <property name="packagePrefix" value="edu.ucsb.cs56.S13.drawings" />
+   <property name="pconradPackage" value="${packagePrefix}.pconrad" />
+   <property name="myPackage" 
+	     value="${packagePrefix}.${username}" />
+   
+   <property name="webRoot" value="${env.HOME}/public_html/cs56" />
+   <property name="webBaseURL" value="http://www.cs.ucsb.edu/~${env.USER}/cs56" />
+   <property name="projectName" value="lab05" /> 
+   <property name="javadocDest" value="${webRoot}/${projectName}/javadoc" /> 
+   <property name="javadocURL" value="${webBaseURL}/${projectName}/javadoc" /> 
+   <property name="imagesDest" value="${webRoot}/${projectName}/images" /> 
+   <property name="imagesURL" value="${webBaseURL}/${projectName}/images" /> 
+   <property name="javadocLink" value="http://java.sun.com/javase/7/docs/api/" />
+   <path id="project.class.path">
+         <pathelement location="build"/>
+         <pathelement location="lib/junit-4.8.2.jar"/>
+   </path>   
+
+  <target name="compile" description="compile my code">
+    <mkdir dir="build" />
+    <javac srcdir="src" destdir="build" debug="true" debuglevel="lines,source" 
+	   includeantruntime="false" >
+      <classpath refid="project.class.path" />
+    </javac>
+  </target>
+
+
+ <target name="javadoc" depends="compile" description="publish javadoc"> 
+   <delete dir="javadoc" quiet="true" /> 
+   <javadoc  destdir="javadoc" author="true" version="true" use="true" >
+     <fileset dir="src" includes="**/*.java"/>
+     <classpath refid="project.class.path" />
+     <link href="${javadocLink}" /> <!-- for external links to std API classes -->
+   </javadoc>
+
+   <!-- delete the old javadoc --> 
+   <delete quiet="true" dir="${javadocDest}" /> 
+ 
+   <!-- copy everything you just made to the javadoc destination,
+	and then make it readable -->   
+   <copy todir="${javadocDest}" > 
+     <fileset dir="javadoc"/> 
+   </copy> 
+
+   <!-- Note: this only does the chmod command on the javadoc
+	subdirectory and its contents.  You MIGHT have to MANUALLY do the
+	chmod on the parent directories.  However, you should only need to do
+	that once. 
+     -->
+   <chmod dir="${javadocDest}" perm="755"  type="dir" includes="**" /> 
+   <chmod dir="${javadocDest}" perm="755"  type="file" includes="**/*" /> 
+   <echo>Javadoc deployed to ${javadocURL}</echo>
+   <echo> or if not on CSIL, try file://${javadocDest}/index.html</echo>
+ </target>        
+
+
+ <target name="test" depends="compile" description="run junit tests">
+
+   <junit haltonerror="no" haltonfailure="no">
+       <classpath refid="project.class.path" />
+
+       <batchtest fork="yes">
+          <fileset dir="src">
+            <!-- this will pick up every class with a name ending in Test -->
+            <include name="**/*Test.java"/>
+          </fileset>
+       </batchtest>
+
+        <formatter type="plain" usefile="false" /> 
+       
+   </junit>
+  </target>
+
+  <target name="clean" description="delete unnecessary files and directories">
+    <delete dir="build" failonerror="false" verbose="true" />
+    <mkdir dir="build" />
+    <delete dir="javadoc" failonerror="false" verbose="true" />  <!-- the local copy -->
+    <mkdir dir="javadoc" />
+  </target>
+
+
+
+  <target name="pconradSimpleGui1" depends="compile" 
+	  description="run simpleGui1 from pconrad subdirectory">
+    <java fork="true" classpathref="project.class.path" 
+	  classname="${pconradPackage}.SimpleGui1" />
+  </target>
+
+  <target name="mySimpleGui1" depends="compile" 
+	  description="run simpleGui1 from ${env.USER} subdirectory">
+    <java fork="true" classpathref="project.class.path" 
+	  classname="${myPackage}.SimpleGui1" />
+  </target>
+
+  <target name="pconradPV" depends="compile" 
+	  description="run  from PictureViewer from pconrad subdirectory">
+    <java fork="true" classpathref="project.class.path" classname="${pconradPackage}.simple.PictureViewer" />
+  </target>
+
+  <target name="pconradMPV" depends="compile" 
+	  description="run MultiPictureViewer from pconrad subdir with no arg">
+    <java fork="true" classpathref="project.class.path" classname="${pconradPackage}.advanced.MultiPictureViewer" />
+  </target>
+
+  <target name="pconradMPV2" depends="compile" 
+	  description="run MultiPictureViewer from pconrad subdir with arg 2">
+    <java fork="true" classpathref="project.class.path" classname="${pconradPackage}.advanced.MultiPictureViewer">
+      <arg value="2" />
+    </java>
+  </target>
+
+  <target name="pconradMPV3" depends="compile" 
+	  description="run MultiPictureViewer from pconrad subdir with arg 3">
+    <java fork="true" classpathref="project.class.path" classname="${pconradPackage}.advanced.MultiPictureViewer">
+      <arg value="3" />
+    </java>
+  </target>
+
+  <target name="pconradWPTF1" depends="compile" 
+	  description="run WritePictureToFile from pconrad;create images/pic1">
+    <mkdir dir="images" />
+    <java fork="true" classpathref="project.class.path" classname="${pconradPackage}.advanced.WritePictureToFile" >
+     <arg value="1" />
+     <arg value="images/pic1" />
+    </java>
+        
+    <copy todir="${imagesDest}" > 
+     <fileset dir="images"/> 
+    </copy> 
+    
+    <echo>images/pic1 online at ${imagesURL}/images/pic1.png</echo>
+  </target>
+
+  <target name="pconradWPTF2" depends="compile" 
+	  description="run WritePictureToFile from pconrad;create images/pic2">
+    <mkdir dir="images" />
+    <java fork="true" classpathref="project.class.path" classname="${pconradPackage}.advanced.WritePictureToFile" >
+     <arg value="2" />
+     <arg value="images/pic2" />
+    </java>
+        
+    <copy todir="${imagesDest}" > 
+     <fileset dir="images"/> 
+    </copy> 
+    
+    <echo>images/pic2 online at ${imagesURL}/images/pic2.png</echo>
+  </target>
+  <target name="pconradWPTF3" depends="compile" 
+	  description="run WritePictureToFile from pconrad;create images/pic3">
+    <mkdir dir="images" />
+    <java fork="true" classpathref="project.class.path" classname="${pconradPackage}.advanced.WritePictureToFile" >
+     <arg value="3" />
+     <arg value="images/pic3" />
+    </java>
+        
+    <copy todir="${imagesDest}" > 
+     <fileset dir="images"/> 
+    </copy> 
+    
+    <echo>images/pic3 online at ${imagesURL}/images/pic3.png</echo>
+  </target>
+
+  <target name="myPV" depends="compile" 
+	  description="run from PictureViewer from ${env.USER} subdirectory">
+    <java fork="true" 
+	  classpathref="project.class.path" 
+	  classname="${myPackage}.simple.PictureViewer" />
+  </target>
+
+  <target name="myMPV" depends="compile" 
+	  description="run MultiPictureViewer from ${env.USER} subdir, no arg">
+    <java fork="true" classpathref="project.class.path" 
+	  classname="${myPackage}.advanced.MultiPictureViewer" />
+  </target>
+  
+  <target name="myMPV2" depends="compile" 
+	  description="run MultiPictureViewer from ${env.USER} subdir, arg 2">
+    <java fork="true" classpathref="project.class.path" 
+	  classname="${myPackage}.advanced.MultiPictureViewer">
+      <arg value="2" />
+    </java>
+  </target>
+
+  <target name="myMPV3" depends="compile" 
+	  description="run MultiPictureViewer from ${env.USER} subdir, arg 3">
+    <java fork="true" classpathref="project.class.path" 
+	  classname="${myPackage}.advanced.MultiPictureViewer">
+      <arg value="3" />
+    </java>
+  </target>
+
+  <target name="myWPTF1" depends="compile" 
+	  description="run WritePictureToFile from my code;create images/mypic1">
+    <mkdir dir="images" />
+    <java fork="true" classpathref="project.class.path" classname="${myPackage}.advanced.WritePictureToFile" >
+     <arg value="1" />
+     <arg value="images/mypic1" />
+    </java>
+        
+    <copy todir="${imagesDest}" > 
+     <fileset dir="images"/> 
+    </copy> 
+    
+    <echo>images/mypic1 online at ${imagesURL}/images/mypic1.png</echo>
+  </target>
+
+  <target name="myWPTF2" depends="compile" 
+	  description="run WritePictureToFile from my code;create images/mypic2">
+    <mkdir dir="images" />
+    <java fork="true" classpathref="project.class.path" classname="${myPackage}.advanced.WritePictureToFile" >
+     <arg value="2" />
+     <arg value="images/mypic2" />
+    </java>
+        
+    <copy todir="${imagesDest}" > 
+     <fileset dir="images"/> 
+    </copy> 
+    
+    <echo>images/mypic2 online at ${imagesURL}/images/mypic2.png</echo>
+  </target>
+  <target name="myWPTF3" depends="compile" 
+	  description="run WritePictureToFile from my code;create images/mypic3">
+    <mkdir dir="images" />
+    <java fork="true" classpathref="project.class.path" classname="${myPackage}.advanced.WritePictureToFile" >
+     <arg value="3" />
+     <arg value="images/mypic3" />
+    </java>
+        
+    <copy todir="${imagesDest}" > 
+     <fileset dir="images"/> 
+    </copy> 
+    
+    <echo>images/mypic3 online at ${imagesURL}/images/mypic3.png</echo>
+  </target>
+
+
+</project>
