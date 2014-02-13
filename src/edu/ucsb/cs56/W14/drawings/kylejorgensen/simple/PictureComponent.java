@@ -95,21 +95,19 @@ public class PictureComponent extends JComponent
            );
        g2.draw(snowManMiddleCircle);
 
-       // @@@ ADD CODE HERE TO DRAW THE TOP CIRCLE
+       // the top circle
         Circle snowManTopCircle = 
            new Circle
            (
-      snowManCenterBottomX,
-      snowManCenterBottomY - bottomRadius * 2 - middleRadius * 2 - topRadius,
-      topRadius
-      );
+            snowManCenterBottomX,
+            snowManCenterBottomY - bottomRadius * 2 - middleRadius * 2 - topRadius,
+            topRadius
+           );
        g2.draw(snowManTopCircle);
 
        
-       // @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
-       
        g2.drawString("A house and a snowman, by Phill Conrad", 20,20);
-       g2.drawString("Top of snowman added by kylejorgensen", 20,40);
+       g2.drawString("Top of snowman added by Kyle Jorgensen", 20,40);
     }
 
         

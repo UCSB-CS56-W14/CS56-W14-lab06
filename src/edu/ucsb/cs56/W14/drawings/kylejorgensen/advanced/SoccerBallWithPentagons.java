@@ -16,69 +16,31 @@ import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
 import edu.ucsb.cs56.w14.drawings.kylejorgensen.simple.Circle;
 
 /**
-   A vector drawing of a soccer ball that implements
-   the Shape interface, and so can be drawn, as well as
-   rotated, scaled, etc.
-
-   Adding a strip is a very lazy way of making it look like a ball. Originally my SoccerBall class used pentagons by default,
-   but I now use that as the example for a subclass of SoccerBall
+   A subclass of SoccerBall that adds pentagons on the ball to make it look more realistic. 
       
    @author Phill Conrad 
-   @author Kyle Jorgensen and Alex Mousavi
-   @version for Lab 06, CS56, Spring 11, UCSB
+   @author Kyle Jorgensen, TA
+   @version for Lab 06, CS56, W14
    
 */
-public class SoccerBall extends GeneralPathWrapper implements Shape
+public class SoccerBallWithPentagons extends SoccerBall implements Shape
 {
-    /**
-       Constructor
+	public SoccerBallWithPentagons(double centerx, double centery, double radius)
+	{
+		// call the constructor of SoccerBall
+		super(centerx, centery, radius);
 
-       @param centerx  the x coordinate for the center of the soccer ball
-       @param centery  the y coordinate for the center of the soccer ball
-       @param radius  the radius of the soccer ball
-     */
-    public SoccerBall(double centerx, double centery, double radius)
-    {
-    
-	Circle ball = new Circle
-           (
-             centerx,
-             centery,
-             radius
-           );
-	     
-        // put the whole ball together
-       
-        GeneralPath wholeSoccerBall = this.get();
-	
-        // add stripe across middle
-        appendStripe(wholeSoccerBall, centerx, centery, radius);
-	
-        wholeSoccerBall.append(ball, false);
-        
-    }
+		GeneralPath wholeSoccerBall = this.get();
 
-    /**
-	   This function is a helper funtion used by drawBall to append a line across the middle of the ball.
-
-       @param thisPath  the GeneralPath wrapper object
-       @param centerx  the x coordinate for the center of the ball
-       @param centery  the y coordinate for the center of the ball
-    */
-    public void appendStripe(GeneralPath thisPath, double centerx, double centery, double radius)
-    {
-    	Line2D.Double stripe = new Line2D.Double(centerx-radius,
-					     						 centery,
-					     						 centerx+radius,
-					     						 centery);
-
-    	thisPath.append(stripe, false);
-    }
+		// append the 3 pentagons within the soccerball
+		appendPentagon(wholeSoccerBall, centerx, centery+(radius/2), radius/3, 1);
+		appendPentagon(wholeSoccerBall, centerx+radius*.3536, centery-radius*.3536, radius/3, -1);
+		appendPentagon(wholeSoccerBall, centerx-radius*.6, centery-radius*(.3536/2), radius/3, -1);
+	}
 
 
-
-     /**
-       This function is a helper funtion used by drawBall to append a line across the middle of the ball
+	/**
+       This function is a helper funtion used by drawBall to append the pentagons within the ball
        @param thisPath  the GeneralPath wrapper object
        @param centerx  the x coordinate for the center of the pentagon
        @param centery  the y coordinate for the center of the pentagon
@@ -118,5 +80,4 @@ public class SoccerBall extends GeneralPathWrapper implements Shape
 	thisPath.append(l4, false);
 	thisPath.append(l5, false);
     }
-
 }
