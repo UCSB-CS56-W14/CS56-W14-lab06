@@ -13,7 +13,7 @@ import java.awt.geom.AffineTransform;
 
 import edu.ucsb.cs56.w14.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
-import edu.ucsb.cs56.w14.drawings.kylejorgensen.simple.Circle;
+
 
 /**
    A subclass of SoccerBall that adds pentagons on the ball to make it look more realistic. 

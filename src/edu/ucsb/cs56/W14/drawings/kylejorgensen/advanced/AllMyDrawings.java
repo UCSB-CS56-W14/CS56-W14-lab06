@@ -21,7 +21,7 @@ import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
  * 
  * @author Phill Conrad 
  * @author Kyle Jorgensen, TA
- * @version for CS10, lab06, Spring 2009
+ * @version for CS56, lab06, Winter 2014
  */
 
 

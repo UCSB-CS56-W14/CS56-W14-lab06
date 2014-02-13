@@ -75,48 +75,4 @@ public class SoccerBall extends GeneralPathWrapper implements Shape
     	thisPath.append(stripe, false);
     }
 
-
-
-     /**
-       This function is a helper funtion used by drawBall to append a line across the middle of the ball
-       @param thisPath  the GeneralPath wrapper object
-       @param centerx  the x coordinate for the center of the pentagon
-       @param centery  the y coordinate for the center of the pentagon
-       @param radius  the distance to each of the 5 corners of the pentagon
-       @param yDirection  used to "flip" the pentagon - should be 1 for normal or -1 for upside down
-
-     */
-    public void appendPentagon(GeneralPath thisPath, double centerx, 
-			     double centery, double radius, int yDirection)
-    {
-
-	int y = yDirection; //ydirection can be 1 or -1, changes direction
-	Line2D.Double l1 = new Line2D.Double(centerx,
-					     centery-radius*y,
-					     centerx+radius*.951,
-					     centery-radius*.309*y);
-	Line2D.Double l2 = new Line2D.Double(centerx+radius*.951,
-					     centery-radius*.309*y,
-					     centerx+radius*.5879,
-					     centery+radius*.809*y);
-	Line2D.Double l3 = new Line2D.Double(centerx+radius*.5879,
-					     centery+radius*.809*y,
-					     centerx-radius*.5879,
-					     centery+radius*.809*y);
-	Line2D.Double l4 = new Line2D.Double(centerx-radius*.5879,
-					     centery+radius*.809*y,
-					     centerx-radius*.951,
-					     centery-radius*.309*y);
-	Line2D.Double l5 = new Line2D.Double(centerx-radius*.951,
-					     centery-radius*.309*y,
-					     centerx,
-					     centery-radius*y);
-	
-	thisPath.append(l1, false);
-	thisPath.append(l2, false);
-	thisPath.append(l3, false);
-	thisPath.append(l4, false);
-	thisPath.append(l5, false);
-    }
-
 }
