@@ -6,8 +6,8 @@ import javax.swing.*;
 
      @author Head First Java, 2nd Edition p. 355
      @author P. Conrad (who only typed it in and added the Javadoc comments)
-     @author TODO: Add additional author here
-     @version CS56, Spring 2013, UCSB
+     @author David Coffill
+     @version CS56, Winter 2014, UCSB
 */
 
 public class SimpleGui1 {
@@ -18,7 +18,10 @@ public class SimpleGui1 {
 
     public static void main (String[] args) {
 	JFrame frame = new JFrame() ;
-	JButton button = new JButton("click me") ;
+	JButton button = new JButton("Click me, please") ;
+	java.awt.Color myColor = new java.awt.Color(50, 200, 240);
+	button.setBackground(myColor);
+	button.setOpaque(true);
 	frame. setDefaultCloseOperation(JFrame. EXIT_ON_CLOSE) ;
 	frame. getContentPane() . add(button) ;
 	frame. setSize(300,300) ;
