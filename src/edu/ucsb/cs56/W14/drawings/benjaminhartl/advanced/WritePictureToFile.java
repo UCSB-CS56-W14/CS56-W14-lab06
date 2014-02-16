@@ -14,8 +14,8 @@ import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
 /**
  *  A class with a main method that can write a drawing to a graphics file.
  *  
- *  @author P. Conrad, 
- *  @version for CS56, W11 UCSB
+ *  @author Benjamin Hartl 
+ *  @version for CS56, W14 UCSB
  */
 
 public class WritePictureToFile
@@ -23,8 +23,7 @@ public class WritePictureToFile
     public static void usage()
     {
        System.out.println("Usage: java WritePictureToFile whichImage mypic");
-       // @@@ modify the next line to describe your picture
-       System.out.println(" whichImage should be 1,2 or 3");
+       System.out.println(" 3 different drawings of tshirts");
        System.out.println(" whichImage chooses from drawPicture1, 2 or 3");
        System.out.println(" .png gets added to the filename");
        System.out.println("  e.g. if you pass mypic, filename is mypic.png"); 

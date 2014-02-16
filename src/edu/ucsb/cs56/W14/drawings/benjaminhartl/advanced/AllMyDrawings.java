@@ -19,8 +19,8 @@ import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
 /**
  * A class with static methods for drawing various pictures
  * 
- * @author Phill Conrad 
- * @version for CS10, lab06, Spring 2009
+ * @author Benjamin Hartl 
+ * @version for CS56, lab06, Winter 2014
  */
 
 
