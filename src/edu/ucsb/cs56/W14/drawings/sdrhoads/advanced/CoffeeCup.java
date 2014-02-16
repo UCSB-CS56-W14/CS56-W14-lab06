@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.w14.drawings.sdrhoads;
+package edu.ucsb.cs56.w14.drawings.sdrhoads.advanced;
 import java.awt.geom.GeneralPath; // combinations of lines and curves
 import java.awt.geom.AffineTransform; // translation, rotation, scale
 import java.awt.Shape; // general class for shapes

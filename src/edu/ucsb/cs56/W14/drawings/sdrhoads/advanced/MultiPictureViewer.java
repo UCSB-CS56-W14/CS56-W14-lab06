@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.w14.drawings.sdrhoads;
+package edu.ucsb.cs56.w14.drawings.sdrhoads.advanced;
 
 import javax.swing.JFrame;
 
@@ -7,6 +7,7 @@ import javax.swing.JFrame;
  *  Rectangle, Line2D.Double, Ellipse2D.Double
  *  
  * @author P. Conrad 
+ * @author Sidney Rhoads
  * @version for UCSB CS56, W14
  */
 
@@ -28,10 +29,10 @@ public class MultiPictureViewer
        // Set the size to whatever size you like (width, height)
        // For projects you turn in, lets not get any bigger than 640,480
        
-       frame.setSize(640,480); // @@@ MODIFY THIS LINE IF YOU LIKE
+       frame.setSize(640,480);
        
        // Set your own title
-       frame.setTitle("Phill's First Drawing"); // @@@ MODIFY THIS LINE
+       frame.setTitle("Delicious Pizza");
        
        // Always do this so that the red X (or red circle) works
        // to close the window. 
