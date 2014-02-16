@@ -7,7 +7,7 @@ import javax.swing.*;
      @author Head First Java, 2nd Edition p. 355
      @author P. Conrad (who only typed it in and added the Javadoc comments)
      @author Jenny Vien
-     @version CS56, Spring 2013, UCSB
+     @version CS56, Winter 2014, UCSB
 */
 
 public class SimpleGui1 {
