@@ -16,14 +16,14 @@ import java.awt.geom.GeneralPath; // combinations of lines and curves
    A component that draws a Picture by Phill Conrad
    
    @author Phill Conrad (original drawing)
-   @author YOUR NAME HERE (fixed the snowmans's head)
-   @version for UCSB CS56, S13
+   @author Deanna Hartsook (fixed the snowmans's head)
+   @version for UCSB CS56, W14
 
    
 */
 
 // Your class should "extend JComponent
-// This is "inheritance", which we'll start readina about in Chapter 10
+// This is "inheritance", which we'll start reading about in Chapter 10
 // It means that PictureComponent "is a" JComponent
 //   that is, a special type of JComponent that is for a specific purpose
 
@@ -96,12 +96,19 @@ public class PictureComponent extends JComponent
        g2.draw(snowManMiddleCircle);
 
        // @@@ ADD CODE HERE TO DRAW THE TOP CIRCLE
-       
+       Circle snowManTopCircle =
+        new Circle
+        (
+            snowManCenterBottomX,
+            snowManCenterBottomY - bottomRadius*2 - middleRadius*2 - topRadius,
+            topRadius
+         );
+       g2.draw(snowManTopCircle);
        
        // @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
        
        g2.drawString("A house and a snowman, by Phill Conrad", 20,20);
-       g2.drawString("Top of snowman added by YOUR NAME HERE", 20,40);
+       g2.drawString("Top of snowman added by Deanna Hartsook", 20,40);
     }
 
         
