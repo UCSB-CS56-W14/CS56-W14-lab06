@@ -21,9 +21,10 @@ import java.awt.Stroke; // Stroke interface
 import java.awt.BasicStroke; // class that implements stroke
 
 /**
-   A component that draws a Picture by Phill Conrad
+   A component that draws a Picture by Sidney Rhoads
    
    @author Phill Conrad (original drawing)
+   @author Sidney Rhoads
    @version CS56, W14, UCSB
 
    

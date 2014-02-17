@@ -27,7 +27,7 @@ import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
 
 public class AllMyDrawings
 {
-    /** Draw a picture with a few houses 
+    /** Draw a picture with a few pizzas and pepperoni pizzas
      */
 
     public static void drawPicture1(Graphics2D g2) {
@@ -74,7 +74,7 @@ public class AllMyDrawings
     }
 
 
-    /** Draw a picture with a pizzas and pepperoni pizza
+    /** Draw a picture of pizzas (and some houses for the town)
      */
     public static void drawPicture2(Graphics2D g2) {
 	
@@ -109,7 +109,7 @@ public class AllMyDrawings
 	g2.drawString("Pizza Parade is in Town", 20,20);
     }
   
-    /** Draw a different picture with a few houses and coffee cups
+    /** Draw more pizzas doing various rotations and transformations
      */
 
     public static void drawPicture3(Graphics2D g2) {
