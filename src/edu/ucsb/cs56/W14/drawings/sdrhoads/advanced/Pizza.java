@@ -46,8 +46,7 @@ public class Pizza extends GeneralPathWrapper implements Shape
         Line2D.Double rightside =
             new Line2D.Double (x + width, y, x + width/2, length);
             
-                // put the whole house together
-       
+        // put the whole pizza together 
         GeneralPath wholePizza = this.get();
         wholePizza.append(crust, false);
         wholePizza.append(leftside, false);
