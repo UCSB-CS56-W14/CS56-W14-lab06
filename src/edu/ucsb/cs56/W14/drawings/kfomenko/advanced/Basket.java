@@ -50,6 +50,18 @@ public class Basket extends GeneralPathWrapper implements Shape
 		Line2D.Double bottomSide =
 			new Line2D.Double (x + width/6.0, y + height, (x + width) - width/6.0, y + height);
 
+		//add basket detail
+
+		Line2D.Double diagonalOne =
+			new Line2D.Double (x + width/6.0, y, x+ width/2.0, y + height);
+
+		Line2D.Double diagonalTwo =
+			new Line2D.Double (x + width/2.0, y, (x + width) - width/6.0, y + height);
+		
+		Line2D.Double diagonalThree =
+			new Line2D.Double ((x + width) - width/6.0, y, x + width/6.0, y + height);
+
+
         // put the basket together
        
         GeneralPath basket = this.get();
@@ -57,6 +69,9 @@ public class Basket extends GeneralPathWrapper implements Shape
         basket.append(bottomSide, false);
         basket.append(rightSide, false);
         basket.append(topSide, false);
+        basket.append(diagonalOne, false);
+        basket.append(diagonalTwo, false);
+        basket.append(diagonalThree, false);
         
     }
 
