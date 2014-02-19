@@ -19,19 +19,20 @@ import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
 /**
  * A class with static methods for drawing various pictures
  * 
- * @author Phill Conrad 
- * @version for CS10, lab06, Spring 2009
+ * @author Phill Conrad
+ *@author Alan Buzdar 
+ * @version for CS56, lab06, Spring 2009
  */
 
 
 public class AllMyDrawings
 {
-    /** Draw a picture with a few houses 
+    /** Draw a picture with a few eggs 
      */
 
     public static void drawPicture1(Graphics2D g2) {
 
-	House h1 = new House(100,250,50,75);
+	Egg h1 = new Egg(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(h1);
 	
 	// Make a black house that's half the size, 
@@ -58,48 +59,47 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(h2); 
 	
-	// Draw two houses with Windows
+	// Draw two egges
 	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
+	EasterEgg hw1 = new EasterEgg(50,350,40,75);
+	EasterEgg hw2 = new EasterEgg(200,350,200,100);
 	
 	g2.draw(hw1);
 	g2.setColor(new Color(0x8F00FF)); g2.draw(hw2);
 	
-	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A few houses by Phill Conrad", 20,20);
+	g2.drawString("Some Pretty Eggs by Alan Buzdar", 20,20);
     }
 
 
-    /** Draw a picture with a few houses and coffee cups
+    /** Draw a picture with a few eggs
      */
     public static void drawPicture2(Graphics2D g2) {
 
-	// Draw some coffee cups.
+	// Draw some eggs
 	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	CoffeeCup tallSkinny = new CoffeeCup(20,150,20,40);
-	CoffeeCup shortFat = new CoffeeCup(20,250,40,20);
+	Egg large = new Egg(100,50,225,150);
+	EasterEgg smallCC = new EasterEgg(20,50,40,30);
+	Egg tallSkinny = new Egg(20,150,20,40);
+	EasterEgg shortFat = new EasterEgg(20,250,40,20);
 	
 	g2.setColor(Color.RED);     g2.draw(large);
 	g2.setColor(Color.GREEN);   g2.draw(smallCC);
 	g2.setColor(Color.BLUE);    g2.draw(tallSkinny);
 	g2.setColor(Color.MAGENTA); g2.draw(shortFat);
 	
-	House h1 = new House(100,250,50,75);
+	EasterEgg h1 = new EasterEgg(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(h1);
 	
-	// Make a black house that's half the size, 
+	// Make a black egg that's half the size, 
 	// and moved over 150 pixels in x direction
 	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
 	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
 	g2.setColor(Color.BLACK); g2.draw(h2);
 	
-	// Here's a house that's 4x as big (2x the original)
+	// Here's a egg that's 4x as big (2x the original)
 	// and moved over 150 more pixels to right.
 	h2 = ShapeTransforms.scaledCopyOfLL(h2,4,4);
 	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
@@ -118,8 +118,8 @@ public class AllMyDrawings
 	
 	// Draw two houses with Windows
 	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
+	EasterEgg hw1 = new EasterEgg(50,350,40,75);
+	EasterEgg hw2 = new EasterEgg(200,350,200,100);
 	
 	g2.draw(hw1);
 	g2.setColor(new Color(0x8F00FF)); 
@@ -129,11 +129,10 @@ public class AllMyDrawings
 
 	g2.draw(hw3);
 	
-	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A bunch of Coffee Cups and a few houses by Phill Conrad", 20,20);
+	g2.drawString("A bunch of Eggs  by Alan Buzdar", 20,20);
     }
   
     /** Draw a different picture with a few houses and coffee cups
@@ -143,13 +142,13 @@ public class AllMyDrawings
 	
 	// label the drawing
 	
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
+	g2.drawString("A lonely egg picnic by Alan buzdar", 20,20);
 
 	
 	// Draw some coffee cups.
 	
-       CoffeeCup large = new CoffeeCup(100,50,225,150);
-       CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
+       EasterEgg large = new EasterEgg(100,50,225,150);
+       EasterEgg smallCC = new EasterEgg(20,50,40,30);
        
        g2.setColor(Color.RED);     g2.draw(large);
        g2.setColor(Color.GREEN);   g2.draw(smallCC);
