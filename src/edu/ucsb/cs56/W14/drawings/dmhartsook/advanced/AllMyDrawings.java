@@ -113,24 +113,30 @@ public class AllMyDrawings
 	g2.drawString("Chocolate Chip Yumminess by Deanna Hartsook", 20,20);
     }
   
-    /** Draw a different picture with a few houses and coffee cups
+    /** Draw a different picture with a cookies
      */
 
     public static void drawPicture3(Graphics2D g2) {
 	
 	// label the drawing
 	
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
+	g2.drawString("A bunch of Cookies by Deanna Hartsook", 20,20);
 
 	
-	// Draw some coffee cups.
+	// Draw some cookies.
 	
-       CoffeeCup large = new CoffeeCup(100,50,225,150);
-       CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
+    Cookie large = new Cookie(160,200,150);
+    ChocolateChipCookie medium = new ChocolateChipCookie(450, 200, 90);
+    Cookie small = new Cookie(300,360,40);
        
-       g2.setColor(Color.RED);     g2.draw(large);
-       g2.setColor(Color.GREEN);   g2.draw(smallCC);
-       
+    g2.setColor(new Color(139,69,19));     g2.draw(large);
+    // Draw this with a thicker stroke
+    Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);
+    Stroke orig=g2.getStroke();
+    g2.setStroke(thick);
+    g2.setColor(new Color(205,183,158)); g2.draw(medium);
+    g2.setStroke(orig);
+    g2.setColor(new Color(205,175,149));   g2.draw(small);
        
     }
     
