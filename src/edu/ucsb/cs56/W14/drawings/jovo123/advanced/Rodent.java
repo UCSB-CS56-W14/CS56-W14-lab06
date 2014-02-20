@@ -42,13 +42,14 @@ public class Rodent extends GeneralPathWrapper implements Shape
         // hard coded a particular drawing, this may be an easier
         // way.
         
-        double cheekSize = .66 * r;
-        double cheekX = x - r;
-        double cheekY = y - r / 3;
+		double cheekW = r;
+		double cheekH = .7 * r;
+        double cheekX = x - r / 2;
+        double cheekY = y + r / 4;
         
-	double eyeSize = .05 * r;
-	double eyeLX = x - r/2;
-	double eyeRX = x + r/2;
+		double eyeSize = .05 * r;
+		double eyeLX = x - r/2;
+		double eyeRX = x + r/2;
 	
 	
         // Make the outline of the face
@@ -60,22 +61,22 @@ public class Rodent extends GeneralPathWrapper implements Shape
         // make the cheek.   Remember that y goes DOWN the page,
         // so we ADD to y to get a "lower" value on the screen
         
-	Ellipse2D.Double cheek = 
-	    new Ellipse2D.Double(cheekX, cheekY, cheekSize, cheekSize);
+		Ellipse2D.Double cheek = 
+	    	new Ellipse2D.Double(cheekX, cheekY, cheekW, cheekH);
 
-	Ellipse2D.Double eyeL =
-	    new Ellipse2D.Double(eyeLX, y, eyeSize, eyeSize);
+		Ellipse2D.Double eyeL =
+	    	new Ellipse2D.Double(eyeLX, y, eyeSize, eyeSize);
 
-	Ellipse2D.Double eyeR =
-	    new Ellipse2D.Double(eyeRX, y, eyeSize, eyeSize);
+		Ellipse2D.Double eyeR =
+	    	new Ellipse2D.Double(eyeRX, y, eyeSize, eyeSize);
 
-	Rectangle2D.Double nose =
-	    new Rectangle2D.Double(x - r/4, y + r/2, .05 * r, .05 * r);
+		Rectangle2D.Double nose =
+	    	new Rectangle2D.Double(x - r/6, y + r/3, 2*r/6, r/7);
 
         // put the rodent together
        
         GeneralPath rodent = this.get();
-	rodent.append(face, false);
+		rodent.append(face, false);
         rodent.append(cheek, false);
         rodent.append(eyeL, false);
         rodent.append(eyeR, false); 

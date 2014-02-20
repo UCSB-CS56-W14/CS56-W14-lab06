@@ -40,7 +40,7 @@ public class Rabbit extends Rodent implements Shape
 
 	double earHeight = 2 * r;
 	double earWidth = 0.5 * r;
-	double earY = y - r;
+	double earY = y - (2.7*r);
 	double earLX = x - r;
 	double earRX = x + r / 2;
 
