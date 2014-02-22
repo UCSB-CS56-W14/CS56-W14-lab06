@@ -26,8 +26,6 @@ import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
 
 public class AllMyDrawings
 {
-    /** Draw a picture with a few houses 
-     */
 
     public static void drawPicture1(Graphics2D g2) {
 
@@ -105,9 +103,6 @@ public class AllMyDrawings
 	g2.setColor(Color.BLACK); 
 	g2.drawString("A bunch of different plates by Andrew Pang", 20,20);
     }
-  
-    /** Draw a different picture with a few houses and coffee cups
-     */
 
     public static void drawPicture3(Graphics2D g2) {
 	
