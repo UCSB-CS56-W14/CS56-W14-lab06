@@ -103,7 +103,7 @@ public class AllMyDrawings
 	
 
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A bunch of wierd plates by Andrew Pang", 20,20);
+	g2.drawString("A bunch of different plates by Andrew Pang", 20,20);
     }
   
     /** Draw a different picture with a few houses and coffee cups
@@ -113,18 +113,32 @@ public class AllMyDrawings
 	
 	// label the drawing
 	
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
+	g2.drawString("A few wierd plates by Andrew Pang", 20,20);
 
-	
-	// Draw some coffee cups.
-	
-       CoffeeCup large = new CoffeeCup(100,50,225,150);
-       CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-       
-       g2.setColor(Color.RED);     g2.draw(large);
-       g2.setColor(Color.GREEN);   g2.draw(smallCC);
-       
-       
+	coolPlate p1 = new coolPlate(220,220,100);
+    g2.setColor(Color.BLUE); g2.draw(p1);
+    
+    Shape p2 = ShapeTransforms.rotatedCopyOf(p1, Math.PI/8.0);
+    Shape p3 = ShapeTransforms.rotatedCopyOf(p2, Math.PI/8.0);
+    Shape p4 = ShapeTransforms.rotatedCopyOf(p3, Math.PI/8.0);
+    g2.draw(p2); g2.draw(p3); g2.draw(p4);
+     
+    g2.setColor(Color.RED);   
+    Shape p5 = ShapeTransforms.scaledCopyOfLL(p1,1.25,1.25);
+	p5 = ShapeTransforms.translatedCopyOf(p5,150,20);
+	g2.draw(p5); 
+	Shape p6 = ShapeTransforms.scaledCopyOfLL(p2,1.25,1.25);
+	p6 = ShapeTransforms.translatedCopyOf(p6,150,20);
+	g2.draw(p6); 
+	Shape p7 = ShapeTransforms.scaledCopyOfLL(p3,1.25,1.25);
+	p7 = ShapeTransforms.translatedCopyOf(p7,150,20);
+	g2.draw(p7); 
+	Shape p8 = ShapeTransforms.scaledCopyOfLL(p4,1.25,1.25);
+	p8 = ShapeTransforms.translatedCopyOf(p8,150,20);
+	g2.draw(p8); 
+
+	Plate p9 = new Plate(320,220,200);
+	g2.setColor(Color.MAGENTA); g2.draw(p9);
     }
     
 
