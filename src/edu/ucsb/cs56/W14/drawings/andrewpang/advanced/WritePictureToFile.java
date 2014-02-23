@@ -68,7 +68,7 @@ public class WritePictureToFile
      } else if (whichPicture.equals("2")) {
 	 AllMyDrawings.drawPicture2(g2);
      } else if (whichPicture.equals("3")) {
-      	 AllMyDrawings.drawPicture2(g2);
+      	 AllMyDrawings.drawPicture3(g2);
      }
 
      final String imageType = "png"; // choices: "gif", "png", "jpg"
