@@ -6,7 +6,7 @@ import javax.swing.*;
 
      @author Head First Java, 2nd Edition p. 355
      @author P. Conrad (who only typed it in and added the Javadoc comments)
-     @author TODO: Add additional author here
+     @author Allison Shedden
      @version CS56, Spring 2013, UCSB
 */
 
@@ -18,10 +18,7 @@ public class SimpleGui1 {
 
     public static void main (String[] args) {
 	JFrame frame = new JFrame() ;
-	JButton button = new JButton("click me, you tall drink of water") ;
-	java.awt.Color myColor = new java.awt.Color(000,204,204);
-	button.setBackground(myColor);
-	button.setOpaque(true);
+	JButton button = new JButton("click me") ;
 	frame. setDefaultCloseOperation(JFrame. EXIT_ON_CLOSE) ;
 	frame. getContentPane() . add(button) ;
 	frame. setSize(300,300) ;
