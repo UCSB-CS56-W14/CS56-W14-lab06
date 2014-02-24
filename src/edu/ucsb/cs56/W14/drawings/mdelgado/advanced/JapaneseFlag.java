@@ -10,36 +10,36 @@ import java.awt.geom.Rectangle2D;
 import java.awt.Rectangle;
 import java.awt.geom.PathIterator;
 import java.awt.geom.AffineTransform;
+import java.awt.geom.Ellipse2D;
 
 import edu.ucsb.cs56.w14.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
-
 /**
-   A vector drawing of a flag that implements
-   the Shape interface, and so can be drawn, as well as
-   rotated, scaled, etc.
+   A Japanese Flag
       
-   @author Miguel Delgado
-   @version for CS56, Winter 14, UCSB
+   @author Miguel Delgado 
+   @version for CS56, W14, UCSB, 02/23/2014
    
 */
-public class Flag extends GeneralPathWrapper implements Shape
+public class JapaneseFlag extends Flag implements Shape
 {
     /**
-       Constructor
-
-       @param x x coord of lower left corner of flag
-       @param y y coord of lower left corner of flag
-       @param width width of the flag
-       @param height of flag 
+     * Constructor for objects of class JapaneseFlag
      */
-    public Flag(double x, double y, double width, double height)
+    public JapaneseFlag(double x, double y, double width, double height)
     {
-	Rectangle2D.Double FlagShape = new Rectangle2D.Double(x,y, width, height);
-	GeneralPath FullFlag = this.get();
-       	 FullFlag.append(FlagShape,false);
-	 
-        
+	// construct the basic flag shell
+	super(x,y,width,height);
+
+	// get the GeneralPath that we are going to append stuff to
+	GeneralPath gp = this.get();
+		
+	Ellipse2D.Double circle = new Ellipse2D.Double((x+ width*.37), (y+ height*.25), (width/4), (height/2)); 
+
+        GeneralPath wholeHouse = this.get();
+       wholeHouse.append(circle, false);
+ 
     }
 
 }
+
