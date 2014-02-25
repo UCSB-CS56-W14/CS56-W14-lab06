@@ -26,7 +26,7 @@ import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
 
 public class AllMyDrawings
 {
-    /** Draw a picture with a few houses 
+    /** Draw a picture with a few televisions
      */
 
     public static void drawPicture1(Graphics2D g2) {
@@ -58,14 +58,14 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(h2); 
 	
-	/* Draw two tvs with Antennas
+	// Draw two tvs with Antennas
 	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
+	TelevisionAntenna hw1 = new TelevisionAntenna(50,350,40,75);
+	TelevisionAntenna hw2 = new TelevisionAntenna(200,350,200,100);
 	
 	g2.draw(hw1);
 	g2.setColor(new Color(0x8F00FF)); g2.draw(hw2);
-	*/
+	
 	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
 	g2.setStroke(orig);
@@ -118,16 +118,16 @@ public class AllMyDrawings
 	
 	// Draw two televisions with antennas
 	
-	/*HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
+	TelevisionAntenna hw1 = new TelevisionAntenna(50,350,40,75);
+	TelevisionAntenna hw2 = new TelevisionAntenna(200,350,200,100);
 	
 	g2.draw(hw1);
 	g2.setColor(new Color(0x8F00FF)); 
-	*/
+	
 	// Rotate the second house 45 degrees around its center.
-	//Shape hw3 = ShapeTransforms.rotatedCopyOf(hw2, Math.PI/4.0);
+	Shape hw3 = ShapeTransforms.rotatedCopyOf(hw2, Math.PI/4.0);
 
-	//g2.draw(hw3);
+	g2.draw(hw3);
 	
 	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
