@@ -18,10 +18,10 @@ public class PictureViewer
       // Set the size to whatever size you like (width, height)
       // For projects you turn in, lets not get any bigger than 640,480
       
-      frame.setSize(640,480); // @@@ MODIFY THIS LINE IF YOU LIKE
+      frame.setSize(640,480);
       
       // Set your own title
-      frame.setTitle("Phill's Drawing"); // @@@ MODIFY THIS LINE
+      frame.setTitle("Khalid's Drawing"); 
       
       // Always do this so that the red X (or red circle) works
       // to close the window. 
