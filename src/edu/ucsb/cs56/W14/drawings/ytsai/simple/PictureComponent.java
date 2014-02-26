@@ -16,8 +16,8 @@ import java.awt.geom.GeneralPath; // combinations of lines and curves
    A component that draws a Picture by Phill Conrad
    
    @author Phill Conrad (original drawing)
-   @author YOUR NAME HERE (fixed the snowmans's head)
-   @version for UCSB CS56, S13
+   @author Yantsey Tsai (fixed the snowmans's head)
+   @version for UCSB CS56, W14
 
    
 */

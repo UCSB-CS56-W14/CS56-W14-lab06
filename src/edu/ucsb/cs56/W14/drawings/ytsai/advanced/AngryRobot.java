@@ -28,20 +28,13 @@ public class AngryRobot extends Robot implements Shape
      */
     public AngryRobot(double x, double y, double width, double height)
     {
-	// construct the basic house shell
+	// construct the basic robot body
 	super(x,y,width,height);
 
 	// get the GeneralPath that we are going to append stuff to
 	GeneralPath gp = this.get();
 	
-	// Make three windows, spaced like this, where w=width/10.0;
-	// | +--+ +--+ +--+ |
-	// | |  | |  | |  | |
-	// | +--+ +--+ +--+ |
-	// |w 2w w 2w w w2 w|
-	//
-	// The top of window will be at y + 0.5*height and the
-	// height of the window is 0.25height;
+	// Make two eyes with furled eyebrows, angry face
 
 
 	double headWidth = .69 * width;
@@ -54,11 +47,11 @@ public class AngryRobot extends Robot implements Shape
 	    new Rectangle2D.Double(x + (.5*width - .5*headWidth) + .1*headWidth, y-.7*headHeight, eyeWidth, eyeHeight);
 	Rectangle2D.Double righteye =
 	    new Rectangle2D.Double(x + (.5*width - .5*headWidth) + .9*headWidth-eyeWidth, y-.7*headHeight, eyeWidth, eyeHeight);
-	//	Line2D.Double rightbrow = new Line2D.Double(x + (.5*width - .5*headWidth) + .55*headWidth,y-.85*headHeight+browHeight,.5*width - .5*headWidth) + .8*headWidth);
+	
 	Line2D.Double rightbrow = new Line2D.Double(x + (.5*width - .5*headWidth) + .55*headWidth, y-headHeight+browHeight, x + (.5*width - .5*headWidth) + .55*headWidth+browWidth, y-headHeight );
 	Line2D.Double leftbrow = new Line2D.Double(x + (.5*width - .5*headWidth) + .2*headWidth, y-headHeight,x + (.5*width - .5*headWidth) + .2*headWidth+browWidth, y-headHeight+browHeight );
 	
-	// add the windows to the house
+	// add the angry face to the robot
 	// Look up the meaning of the second parameter of append
 	// (Hint--is a method of "GeneralPath")
 

@@ -7,7 +7,7 @@ package edu.ucsb.cs56.w14.drawings.ytsai.simple;
  * because the parameters to the constructor are more convenient
  * 
  * @author P. Conrad  
- * @version CS56, Spring 2013, UCSB
+ * @version CS56, W14, UCSB
  */
 public class Circle extends java.awt.geom.Ellipse2D.Double implements java.awt.Shape
 { 

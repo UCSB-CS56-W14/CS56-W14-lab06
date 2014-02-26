@@ -35,14 +35,14 @@ public class AllMyDrawings
 	Robot r1 = new Robot(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(r1);
 	
-	// Make a black house that's half the size, 
+	// Make a robot that's half size, 
 	// and moved over 150 pixels in x direction
 
 	Shape r2 = ShapeTransforms.scaledCopyOfLL(r1,0.5,0.5);
 	r2 = ShapeTransforms.translatedCopyOf(r2,150,0);
 	g2.setColor(Color.BLACK); g2.draw(r2);
 	
-	// Here's a house that's 4x as big (2x the original)
+	// Here's a robot that's 4x as big (2x the original)
 	// and moved over 150 more pixels to right.
 	r2 = ShapeTransforms.scaledCopyOfLL(r2,4,4);
 	r2 = ShapeTransforms.translatedCopyOf(r2,150,0);
@@ -59,7 +59,7 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(r2); 
 	
-	// Draw two houses with Windows
+	// Draw two angry robots
 	
 	AngryRobot hw1 = new AngryRobot(50,150,40,75);
 	AngryRobot hw2 = new AngryRobot(200,190,169,169);
@@ -67,11 +67,11 @@ public class AllMyDrawings
 	g2.draw(hw1);
 	g2.setColor(new Color(0x8F00FF)); g2.draw(hw2);
 	
-	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
+	
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A few Robots by Yantsey Tsai", 20,20);
+	g2.drawString("A few Robots and AngryRobots by Yantsey Tsai", 20,20);
     }
 
 
@@ -79,17 +79,7 @@ public class AllMyDrawings
      */
     public static void drawPicture2(Graphics2D g2) {
 
-	// Draw some coffee cups.
-	/*
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	CoffeeCup tallSkinny = new CoffeeCup(20,150,20,40);
-	CoffeeCup shortFat = new CoffeeCup(20,250,40,20);
-	
-	g2.setColor(Color.RED);     g2.draw(large);
-	g2.setColor(Color.GREEN);   g2.draw(smallCC);
-	g2.setColor(Color.BLUE);    g2.draw(tallSkinny);
-	g2.setColor(Color.MAGENTA); g2.draw(shortFat);*/
+	// Draw some AngryRobots
 	
         AngryRobot h1 = new AngryRobot(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(h1);
@@ -117,7 +107,7 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(h2); 
 	
-	// Draw two houses with Windows angry robots
+	// Draw two angry robots
 	
 	AngryRobot hw1 = new AngryRobot(50,300,40,90);
 	AngryRobot hw2 = new AngryRobot(188,60,200,220);
@@ -125,12 +115,12 @@ public class AllMyDrawings
 	g2.draw(hw1);
 	g2.setColor(new Color(0xFF033E)); 
 
-	// Rotate the second house 45 degrees around its center.
+	// Rotate the second angry robot 45 degrees around its center.
 	Shape hw3 = ShapeTransforms.rotatedCopyOf(hw2, Math.PI/4.0);
 
 	g2.draw(hw3);
 	
-	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
+	
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
@@ -147,7 +137,7 @@ public class AllMyDrawings
 	g2.drawString("A bunch of angry robots by Yantsey Tsai", 20,20);
 
 	
-	// Draw some coffee cups.
+	// Draw some angry robots.
 	
        AngryRobot ar1 = new AngryRobot(50,250,40,90);
        AngryRobot ar2 = new AngryRobot(320,180,140,190);

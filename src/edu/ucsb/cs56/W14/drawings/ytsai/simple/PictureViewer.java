@@ -6,7 +6,7 @@ import javax.swing.JFrame;
  *  Rectangle, Line2D.Double, Ellipse2D.Double
  *  
  * @author P. Conrad 
- * @version CS56, Spring 2013, UCSB
+ * @version CS56, W14, UCSB
  */
 
 public class PictureViewer
