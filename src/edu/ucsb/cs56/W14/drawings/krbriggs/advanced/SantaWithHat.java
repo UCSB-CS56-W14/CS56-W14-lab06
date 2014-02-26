@@ -15,53 +15,56 @@ import java.awt.geom.AffineTransform;
 import edu.ucsb.cs56.w14.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
 /**
-   A House
+   A Santa head added to the hat
       
    @author Kevin Briggs 
    @version for CS56, W14, UCSB, 02/22/2014
    
 */
-public class HouseWithWindows extends House implements Shape
+public class SantaWithHat extends SantaHat implements Shape
 {
     /**
      * Constructor for objects of class SantaWithHat
      */
-    public HouseWithWindows(double x, double y, double width, double height)
+    public SantaWithHat(double x, double y, double size)
     {
-	// construct the basic house shell
-	super(x,y,width,height);
+	// construct the basic santa hat
+	super(x,y, size*.75,size);
 
 	// get the GeneralPath that we are going to append stuff to
 	GeneralPath gp = this.get();
 	
-	// Make three windows, spaced like this, where w=width/10.0;
-	// | +--+ +--+ +--+ |
-	// | |  | |  | |  | |
-	// | +--+ +--+ +--+ |
-	// |w 2w w 2w w w2 w|
-	//
-	// The top of window will be at y + 0.5*height and the
-	// height of the window is 0.25height;
-
-	double w = 0.10 * width;
-	double winTop = y + 0.5 * height;
-	double winHt =  0.25 * height;
-
-	Rectangle2D.Double win1 =
-	    new Rectangle2D.Double(x + w, winTop, 2.0 * w, winHt);
-	Rectangle2D.Double win2 =
-	    new Rectangle2D.Double(x + 4.0*w, winTop, 2.0 * w, winHt);
-	Rectangle2D.Double win3 =
-	    new Rectangle2D.Double(x + 7.0*w, winTop, 2.0 * w, winHt);
 	
-	// add the windows to the house
-	// Look up the meaning of the second parameter of append
-	// (Hint--is a method of "GeneralPath")
 
-        GeneralPath wholeHouse = this.get();
-        wholeHouse.append(win1, false);
-        wholeHouse.append(win2, false);
-        wholeHouse.append(win3, false); 
+	
+
+	Rectangle2D.Double head =
+	    new Rectangle2D.Double(x-size, y+size, size*2, size*2);
+	
+
+	Line2D.Double lefteye = 
+            new Line2D.Double (x+ .5*size -size, y +.4*size +size,
+                               x + .5*size -size, y + .6*size +size);
+
+	Line2D.Double righteye = 
+            new Line2D.Double (x+ 1.5*size -size, y +.4*size +size,
+                               x + 1.5*size -size, y + .6*size +size);
+
+	Rectangle2D.Double mouth =
+	    new Rectangle2D.Double(x+ .5*size -size, y+2*size, size, size*.5);
+
+
+
+	
+	// add the head, eyes, and mouth to the hat
+	
+
+        GeneralPath santa = this.get();
+        santa.append(head, false);
+	santa.append(lefteye, false);
+	santa.append(righteye, false);	
+	santa.append(mouth, false);
+        
     }
 
 }
