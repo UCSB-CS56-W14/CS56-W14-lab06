@@ -37,12 +37,13 @@ public class HourglassFull extends Hourglass implements Shape
 	double widthBase = width;
 	double heightBase = .1 * height;
        
-        //@@@@ TODO coordinates are wrong.
+        //Fixed
+        //width was just a number and not the distance between the points
 
 	Rectangle2D.Double topBase =
-	    new Rectangle2D.Double(width, y, widthBase, heightBase);
+	    new Rectangle2D.Double(x, y - heightBase, widthBase, heightBase);
 	Rectangle2D.Double bottomBase =
-	    new Rectangle2D.Double(width, height - heightBase, widthBase, heightBase);
+	    new Rectangle2D.Double(x, (height + y), widthBase, heightBase);
 	
 	// add bases to the hourglass
         

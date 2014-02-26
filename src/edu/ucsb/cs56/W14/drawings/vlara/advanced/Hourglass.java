@@ -35,8 +35,12 @@ public class Hourglass extends GeneralPathWrapper implements Shape
      */
     public Hourglass(double x, double y, double width, double height)
     {   
+	//Fixed initial bug that had the width as just a number
+	//and not the acutal width.
+	//
 	double actualWidth = x + width;
 	double actualHeight = y + height;
+
         //The first diagonal of the hourglass
         //                \
         //                 \
