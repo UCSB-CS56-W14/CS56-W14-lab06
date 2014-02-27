@@ -18,7 +18,10 @@ public class SimpleGui1 {
 
     public static void main (String[] args) {
 	JFrame frame = new JFrame() ;
-	JButton button = new JButton("click me") ;
+	JButton button = new JButton("Click me, you tall drink of water") ;
+	java.awt.Color myColor = new java.awt.Color(102,255,255);
+	button.setBackground(myColor);
+	button.setOpaque(true);
 	frame. setDefaultCloseOperation(JFrame. EXIT_ON_CLOSE) ;
 	frame. getContentPane() . add(button) ;
 	frame. setSize(300,300) ;
