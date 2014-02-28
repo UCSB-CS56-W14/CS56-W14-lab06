@@ -1,10 +1,12 @@
 package edu.ucsb.cs56.w14.drawings.zhansaya.advanced;
+
 import java.awt.geom.GeneralPath; // combinations of lines and curves
 import java.awt.geom.AffineTransform; // translation, rotation, scale
 import java.awt.Shape; // general class for shapes
 
 // all imports below this line needed if you are implementing Shape
 import java.awt.geom.Point2D; 
+import java.awt.geom.Arc2D; 
 import java.awt.geom.Line2D; 
 import java.awt.geom.Rectangle2D;
 import java.awt.Rectangle;
@@ -13,54 +15,80 @@ import java.awt.geom.AffineTransform;
 
 import edu.ucsb.cs56.w14.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
+
+
 /**
-   A House
+   A subclass of Pie that adds apples on the pie to make it look more realistic. 
       
-   @author Phill Conrad 
-   @version for CS56, W11, UCSB, 02/23/2011
+   @author Zhansaya Abdikarimova
+   @version Lab 06, CS56, W14
    
 */
-public class ApplePie extends House implements Shape
+public class ApplePie extends Pie implements Shape
 {
-    /**
-     * Constructor for objects of class CoffeeCup
+	public ApplePie(double centerx, double centery, double radius)
+	{
+		// call the constructor of Pie
+		super(centerx, centery, radius);
+
+		GeneralPath wholePie = this.get();
+
+		// append the apples within the Pie
+		
+		appendApple(wholePie, centerx, centery-(radius)+radius/4, radius/3);
+		appendApple(wholePie, centerx-radius/2, centery-(radius)+radius/4, radius/3);
+		
+		appendApple(wholePie, centerx-radius/4, centery-(radius/2), radius/3);
+		appendApple(wholePie, centerx+radius/4, centery-(radius/2), radius/3);
+		appendApple(wholePie, centerx-radius/2-radius/4, centery-(radius/2), radius/3);
+		
+		appendApple(wholePie, centerx, centery-(radius/4), radius/3);
+		appendApple(wholePie, centerx-radius/2, centery-radius/4, radius/3);
+		appendApple(wholePie, centerx+radius/2, centery-radius/4, radius/3);
+		appendApple(wholePie, centerx-radius, centery-radius/4, radius/3);
+		
+		appendApple(wholePie, centerx+radius/4, centery, radius/3);
+		appendApple(wholePie, centerx-radius/4, centery, radius/3);
+		appendApple(wholePie, centerx-radius/2-radius/4, centery, radius/3);
+		
+		appendApple(wholePie, centerx, centery+(radius/4), radius/3);
+		appendApple(wholePie, centerx-radius/2, centery+(radius/4), radius/3);
+		appendApple(wholePie, centerx+radius/2, centery+(radius/4), radius/3);
+		
+		appendApple(wholePie, centerx-radius/4, centery+(radius/2), radius/3);
+		appendApple(wholePie, centerx+radius/4, centery+(radius/2), radius/3);
+		appendApple(wholePie, centerx-radius/2-radius/4, centery+(radius/2), radius/3);
+		
+		appendApple(wholePie, centerx, centery+(radius)-radius/4, radius/3);
+		
+		
+		
+		
+		
+	}
+
+
+	/**
+       This function is a helper funtion to append the apples within the pie
+       @param thisPath  the GeneralPath wrapper object
+       @param centerx  the x coordinate for the center of the apple
+       @param centery  the y coordinate for the center of the apple
+       @param radius radius of a semicircle of an apple
+       
      */
-    public HouseWithWindows(double x, double y, double width, double height)
+    public void appendApple(GeneralPath thisPath, double centerx, 
+			     double centery, double radius)
     {
-	// construct the basic house shell
-	super(x,y,width,height);
-
-	// get the GeneralPath that we are going to append stuff to
-	GeneralPath gp = this.get();
+    
+    
+    Arc2D.Double a1 = new  Arc2D.Double(centerx, centery,radius,radius,0,180,
+                         Arc2D.OPEN);
+    
+    thisPath.append(a1,false);
+    
+    Line2D.Double l1 = new Line2D.Double(centerx,centery+radius/2,
+					     centerx+radius,centery+radius/2);
+	thisPath.append(l1,false);	     
 	
-	// Make three windows, spaced like this, where w=width/10.0;
-	// | +--+ +--+ +--+ |
-	// | |  | |  | |  | |
-	// | +--+ +--+ +--+ |
-	// |w 2w w 2w w w2 w|
-	//
-	// The top of window will be at y + 0.5*height and the
-	// height of the window is 0.25height;
-
-	double w = 0.10 * width;
-	double winTop = y + 0.5 * height;
-	double winHt =  0.25 * height;
-
-	Rectangle2D.Double win1 =
-	    new Rectangle2D.Double(x + w, winTop, 2.0 * w, winHt);
-	Rectangle2D.Double win2 =
-	    new Rectangle2D.Double(x + 4.0*w, winTop, 2.0 * w, winHt);
-	Rectangle2D.Double win3 =
-	    new Rectangle2D.Double(x + 7.0*w, winTop, 2.0 * w, winHt);
-	
-	// add the windows to the house
-	// Look up the meaning of the second parameter of append
-	// (Hint--is a method of "GeneralPath")
-
-        GeneralPath wholeHouse = this.get();
-        wholeHouse.append(win1, false);
-        wholeHouse.append(win2, false);
-        wholeHouse.append(win3, false); 
     }
-
 }

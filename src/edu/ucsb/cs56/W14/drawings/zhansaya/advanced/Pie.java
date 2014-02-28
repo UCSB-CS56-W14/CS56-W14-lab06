@@ -1,4 +1,5 @@
 package edu.ucsb.cs56.w14.drawings.zhansaya.advanced;
+
 import java.awt.geom.GeneralPath; // combinations of lines and curves
 import java.awt.geom.AffineTransform; // translation, rotation, scale
 import java.awt.Shape; // general class for shapes
@@ -13,14 +14,14 @@ import java.awt.geom.AffineTransform;
 
 import edu.ucsb.cs56.w14.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
+import edu.ucsb.cs56.w14.drawings.zhansaya.simple.Circle;
 
 /**
-   A vector drawing of a house that implements
-   the Shape interface, and so can be drawn, as well as
-   rotated, scaled, etc.
-      
+   A vector drawing of a pie that implements the Shape interface, 
+   and can be drawn as well as rotated, etc.
+   
    @author Zhansaya Abdikarimova
-   @version for CS56, Winter 11, UCSB
+   @version Lab 06, CS56, Winter 14, UCSB
    
 */
 public class Pie extends GeneralPathWrapper implements Shape
@@ -28,49 +29,39 @@ public class Pie extends GeneralPathWrapper implements Shape
     /**
        Constructor
 
-       @param x x coord of lower left corner of house
-       @param y y coord of lower left corner of house
-       @param width width of the house
-       @param height of house (including first story and second story)
+       @param centerx  the x coordinate for the center of the pie
+       @param centery  the y coordinate for the center of the pie
+       @param radius  the radius of the pie
      */
-    public Pie(double x, double y, double width, double height)
+    public Pie(double centerx, double centery, double radius)
     {
     
-        // Rather than having to scale at the end, we can just
-        // draw things the right way to begin with, using the
-        // x, y, width and height.   If you haven't already
-        // hard coded a particular drawing, this may be an easier
-        // way.
-        
-        double firstStoryHeight = .75 * height;
-        double roofHeight = height - firstStoryHeight;
-        
-        double firstStoryUpperLeftY = y + roofHeight;
-        
-        // Make the first story
-        
-        Rectangle2D.Double firstStory = 
-            new Rectangle2D.Double(x, firstStoryUpperLeftY ,
-                          width, firstStoryHeight);
-                          
-        // make the roof.   Remember that y goes DOWN the page,
-        // so we ADD to y to get a "lower" value on the screen
-        
-        Line2D.Double leftRoof = 
-            new Line2D.Double (x, y + roofHeight,
-                               x + width/2.0, y);
-                               
-        Line2D.Double rightRoof =
-            new Line2D.Double (x + width/2.0, y,
-                               x + width, y + roofHeight);
+		Circle pie = new Circle(centerx,centery,radius);
 
-        // put the whole house together
-       
-        GeneralPath wholeHouse = this.get();
-        wholeHouse.append(firstStory, false);
-        wholeHouse.append(leftRoof, false);
-        wholeHouse.append(rightRoof, false); 
+    
+    	// put the whole pie together
+        GeneralPath wholePie = this.get();
+		// add edge of the pie
+        drawEdges(wholePie, centerx, centery, radius);
+		
+        wholePie.append(pie, false);
         
+    }
+
+    /**
+	   This function is a helper function to draw edges of the pie.
+
+       @param thisPath  the GeneralPath wrapper object
+       @param centerx  the x coordinate for the center of the pie
+       @param centery  the y coordinate for the center of the pie
+    */
+    
+    
+    public void drawEdges(GeneralPath thisPath, double centerx, double centery, double radius)
+    {
+    	Circle edge = new Circle(centerx,centery,radius+10);
+
+    	thisPath.append(edge, false);
     }
 
 }
