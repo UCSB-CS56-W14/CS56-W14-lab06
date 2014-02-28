@@ -24,16 +24,20 @@ import edu.ucsb.cs56.w14.drawings.dconard.simple.*;
 */
 public class BruceWayne extends GeneralPathWrapper implements Shape
 {
+    public GeneralPath wholeFigure;
+    private Shape s;
+
+    private final double ORIG_ULX = 100.0; 
+    private final double ORIG_ULY = 100.0; 
+    private final double ORIG_HEIGHT = 300.0; 
+    private final double ORIG_WIDTH = 400.0; 
+    
     /**
      * Constructor for objects of class BruceWayne
      */
-    public BruceWayne(double x, double y, double width, double height)
+
+    public BruceWayne()
     {
-        final double ORIG_ULX = 100.0; 
-        final double ORIG_ULY = 100.0; 
-        final double ORIG_HEIGHT = 300.0; 
-        final double ORIG_WIDTH = 400.0; 
-                
         GeneralPath leftSide = new GeneralPath();
 	leftSide.moveTo(195,200);
 	leftSide.lineTo(195,230);//neck
@@ -53,19 +57,23 @@ public class BruceWayne extends GeneralPathWrapper implements Shape
         rightSide = ShapeTransforms.translatedCopyOf(rightSide, 140.0, 0.0);
 	Circle head = new Circle(210,170,35);
        
-        GeneralPath wholeCup = new GeneralPath ();
-	wholeCup.append(head,false);
-        wholeCup.append(leftSide, false);
-        wholeCup.append(rightSide, false);
-        
-        Shape s = ShapeTransforms.translatedCopyOf(wholeCup, -ORIG_ULX + x, -ORIG_ULY + y);
- 
-        s =  ShapeTransforms.scaledCopyOf(s,
-					  width/ORIG_WIDTH,
-					  height/ORIG_HEIGHT) ;
-        
-	this.set(new GeneralPath(s));
-        
+	wholeFigure = new GeneralPath();
+	wholeFigure.append(head,false);
+        wholeFigure.append(leftSide, false);
+        wholeFigure.append(rightSide, false);
     }
 
+    private void setPos(double x, double y) {
+	s = ShapeTransforms.translatedCopyOf(wholeFigure, -ORIG_ULX + x, -ORIG_ULY + y);
+    }
+
+    private void setScale(double width, double height) {
+	s = ShapeTransforms.scaledCopyOf(s, width/ORIG_WIDTH, height/ORIG_HEIGHT);
+    }
+
+    public void drawFigure(double x, double y, double width, double height) {
+	setPos(x,y);
+	setScale(width,height);
+	this.set(new GeneralPath(s));
+    }
 }
