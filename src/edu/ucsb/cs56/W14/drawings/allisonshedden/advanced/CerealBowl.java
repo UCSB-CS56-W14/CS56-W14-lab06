@@ -91,7 +91,7 @@ public class CerealBowl extends GeneralPathWrapper implements Shape
 					  height/ORIG_HEIGHT) ;
 	 
 	// Use the GeneralPath constructor that takes a shape and returns
-	// it as a general path to set our instance variable cup
+	// it as a general path to set our instance variable bowl
         
 	this.set(new GeneralPath(s));
         
