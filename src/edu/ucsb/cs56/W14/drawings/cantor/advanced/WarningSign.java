@@ -14,7 +14,7 @@ import java.awt.geom.AffineTransform;
 import edu.ucsb.cs56.w14.drawings.utilities.ShapeTransforms;
 import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
 /**
-   A House
+   A Warning Sign
       
    @author Phill Conrad 
    @author Antonio Cantor
@@ -28,7 +28,7 @@ public class WarningSign extends Triangle implements Shape
      */
     public WarningSign(double x, double y, double width, double height)
     {
-	// construct the basic house shell
+	// construct the basic triangle shell
 	super(x,y,width,height);
 
 	// get the GeneralPath that we are going to append stuff to
