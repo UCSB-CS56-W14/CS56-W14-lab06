@@ -31,20 +31,18 @@ public class AllMyDrawings
 
     public static void drawPicture1(Graphics2D g2) {
 
-	House h1 = new House(100,250,50,75);
-	g2.setColor(Color.CYAN); g2.draw(h1);
+        IceCreamCone c1 = new IceCreamCone(100,250,50);
+	g2.setColor(Color.CYAN); g2.draw(c1);
 	
-	// Make a black house that's half the size, 
-	// and moved over 150 pixels in x direction
 
-	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
-	g2.setColor(Color.BLACK); g2.draw(h2);
+	Shape c2 = ShapeTransforms.scaledCopyOfLL(c1,0.5,0.5);
+	c2 = ShapeTransforms.translatedCopyOf(c2,150,0);
+	g2.setColor(Color.BLACK); g2.draw(c2);
 	
 	// Here's a house that's 4x as big (2x the original)
 	// and moved over 150 more pixels to right.
-	h2 = ShapeTransforms.scaledCopyOfLL(h2,4,4);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
+	c2 = ShapeTransforms.scaledCopyOfLL(c2,4,4);
+	c2 = ShapeTransforms.translatedCopyOf(c2,150,0);
 	
 	// We'll draw this with a thicker stroke
 	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
@@ -56,7 +54,7 @@ public class AllMyDrawings
 	Stroke orig=g2.getStroke();
 	g2.setStroke(thick);
 	g2.setColor(new Color(0x002FA7)); 
-	g2.draw(h2); 
+	g2.draw(c2); 
 	
 	// Draw two houses with Windows
 	
