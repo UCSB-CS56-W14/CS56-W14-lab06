@@ -31,22 +31,29 @@ public class Computer extends ComputerMonitor implements Shape
 	super(x,y,width,height);
 
 	// get the GeneralPath that we are going to append stuff to
-	//GeneralPath gp = this.get();
-	
-	// Make a mouse
+	GeneralPath gp = this.get();
 
-
+	//scale base hight and width
+	double w = 0.25 * width;
+	double base_top = y + height;
+	double base_height =  0.25 * height;
 	
-
+	// Make a base for the computer
 	
-	// add the mouse to the computer
+	Rectangle2D.Double comp1 =
+	    new Rectangle2D.Double(x +((width-w)/2), base_top, w, base_height/2);
+
+	Rectangle2D.Double comp2 =
+	    new Rectangle2D.Double(x +((width-w)/3), base_height / 2 + base_top  , 2*w, base_height/4);
+
+	//add base to the computers
 	// Look up the meaning of the second parameter of append
 	// (Hint--is a method of "GeneralPath")
 
         GeneralPath wholeComputer = this.get();
-	//  wholeComputer.append(win1, false);
-        //wholeComputer.append(win2, false);
-        //wholeComputer.append(win3, false); 
+	wholeComputer.append(comp1, false);
+	wholeComputer.append(comp2, false);
+      
     }
 
 }

@@ -86,10 +86,10 @@ public class AllMyDrawings
         Computer tallSkinny = new Computer(20,150,20,40);
         Computer shortFat = new Computer(20,250,40,20);
 	
-	g2.setColor(Color.RED);     g2.draw(large);
+	g2.setColor(Color.RED);    
 	g2.setColor(Color.GREEN);   g2.draw(smallCC);
-	g2.setColor(Color.BLUE);    g2.draw(tallSkinny);
-	g2.setColor(Color.MAGENTA); g2.draw(shortFat);
+	g2.setColor(Color.YELLOW);    g2.draw(tallSkinny);
+	g2.setColor(Color.MAGENTA); 
 	
 	ComputerMonitor C1 = new Computer(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(C1);
@@ -127,8 +127,12 @@ public class AllMyDrawings
 
 	// Rotate the second computer 45 degrees around its center.
 	Shape c_3 = ShapeTransforms.rotatedCopyOf(c_2, Math.PI/4.0);
+       	Shape c_4 = ShapeTransforms.rotatedCopyOf(shortFat, Math.PI/3.0);
+       	Shape c_5 = ShapeTransforms.rotatedCopyOf(large, Math.PI/1.0);
 
 	g2.draw(c_3);
+	g2.draw(c_4);
+	g2.draw(c_5);
 	
 	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
@@ -144,16 +148,28 @@ public class AllMyDrawings
 	
 	// label the drawing
 	
-	g2.drawString("A bunch of Computer Monitors by Sarah Darwiche", 20,20);
+	g2.drawString("A bunch of Computers and Computer Monitors by Sarah Darwiche", 20,20);
 
 	
 	// Draw some Computer Monitors.
 	
        ComputerMonitor large = new ComputerMonitor(100,50,225,150);
        ComputerMonitor smallCC = new ComputerMonitor(20,50,40,30);
+       Computer medium = new Computer(450,50,90,30);
+       Computer medium2 = new Computer(450,300,90,30);
+       Computer medium3 = new Computer(250,400,90,30);
        
-       g2.setColor(Color.RED);     g2.draw(large);
+       g2.setColor(Color.BLUE);     g2.draw(large);
        g2.setColor(Color.GREEN);   g2.draw(smallCC);
+       g2.setColor(Color.BLUE);
+       g2.setColor(Color.RED);     g2.draw(medium2);
+       g2.setColor(Color.YELLOW);  g2.draw(medium3);
+
+       g2.setColor(Color.GREEN);
+
+       Shape copy = ShapeTransforms.rotatedCopyOf(medium, Math.PI/1.0);
+       g2.draw(copy);
+
        
        
     }

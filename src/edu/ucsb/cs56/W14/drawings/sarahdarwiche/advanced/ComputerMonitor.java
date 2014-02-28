@@ -42,12 +42,12 @@ public class ComputerMonitor extends GeneralPathWrapper implements Shape
         // hard coded a particular drawing, this may be an easier
         // way.
         
-        double outsidemonitor_height = .75 * height;
-        double insidemonitor_height =.65 * height;
-	double insidemonitor_width = .65 * width;
+        double outsidemonitor_height =  height;
+        double insidemonitor_height =.90 * height;
+	double insidemonitor_width = .90 * width;
         
-        double outsidemonitorUpperLeftY = y + outsidemonitor_height;
-	double insidemonitorUpperLeftY = y + insidemonitor_height;
+        double outsidemonitorUpperLeftY = y;
+	double insidemonitorUpperLeftY =( y + (outsidemonitor_height-insidemonitor_height)/2);
         
         // Make the outside monitor
         
@@ -58,7 +58,7 @@ public class ComputerMonitor extends GeneralPathWrapper implements Shape
 	//Make the inside monitor
        
 	Rectangle2D.Double insidemonitor = 
-            new Rectangle2D.Double(x + x/10, insidemonitorUpperLeftY +  insidemonitorUpperLeftY/26 ,
+            new Rectangle2D.Double(x +(width - insidemonitor_width)/2, insidemonitorUpperLeftY ,
                          insidemonitor_width, insidemonitor_height);
      
 
