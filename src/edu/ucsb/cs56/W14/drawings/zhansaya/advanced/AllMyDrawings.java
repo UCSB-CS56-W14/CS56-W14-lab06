@@ -21,7 +21,7 @@ import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
  * 
  * @author Phill Conrad 
  * @author Zhansaya Abdikarimova
- * @version for CS10, lab06, W14
+ * @version for CS56, lab06, W14
  */
 
 
@@ -30,35 +30,29 @@ public class AllMyDrawings
     /** Draw a picture with a few Pies 
      */
 
-    public static void drawPicture1(Graphics2D g2) {
+    public static void drawPicture1(Graphics2D g2){
 
 	Pie p1 = new Pie(400,250,55);
 	g2.setColor(Color.RED); 
 	g2.draw(p1);
 	
-	
 	// Draw a Pie with apples 
-	
-	
 	ApplePie ap1 = new ApplePie(200,150,100);
 	g2.setColor(new Color(0x8F00FF));
 	g2.draw(ap1);
-	
-	
-	
     }
 
 
     /** Draw a picture with a few Pies 
      */
-    public static void drawPicture2(Graphics2D g2) {
+    public static void drawPicture2(Graphics2D g2){
 	
 	
 	Pie p1 = new Pie(100,250,75);
 	g2.setColor(Color.RED); 
 	g2.draw(p1);
 	
-	// Make a black Pie that's half the size, 
+	// Make a green Pie that's half the size, 
 	// and moved over 150 pixels in x direction
 	Shape p2 = ShapeTransforms.scaledCopyOfLL(p1,0.5,0.5);
 	p2 = ShapeTransforms.translatedCopyOf(p2,150,0);
@@ -71,23 +65,18 @@ public class AllMyDrawings
 	p2 = ShapeTransforms.translatedCopyOf(p2,150,0);
 	
 	// We'll draw this with a thicker stroke
-	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
-	
-	// for hex colors, see (e.g.) http://en.wikipedia.org/wiki/List_of_colors
-	// #002FA7 is "International Klein Blue" according to Wikipedia
-	// In HTML we use #, but in Java (and C/C++) its 0x
+	Stroke thick = new BasicStroke(4.0f, BasicStroke.CAP_BUTT, 
+				       BasicStroke.JOIN_BEVEL);       
 	
 	Stroke orig=g2.getStroke();
 	g2.setStroke(thick);
 	g2.setColor(new Color(242,179,111)); 
 	g2.draw(p2); 
 	
-	// Draw two Pies with Apples
-	
+	// Draw two Pies with Apples	
 	ApplePie ap1 = new ApplePie(50,50,25);
 	ApplePie ap2 = new ApplePie(300,150,100);
-	
-	g2.draw(ap1);
+       	g2.draw(ap1);
 	g2.setColor(new Color(0x8F0000)); 
 
 	// Rotate the second Pie 45 degrees around its center.
@@ -96,23 +85,23 @@ public class AllMyDrawings
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
 	
-	g2.drawString("A bunch of simple and apple Pies by Zhansaya Abdikarimova", 20,20);
+	g2.drawString("A bunch of simple and apple pies by Zhansaya Abdikarimova", 20,20);
     }
   
-    /** Draw a different picture with a few Pies
+    /** Draw a different picture with a few pies and coffee cups
      */
 
     public static void drawPicture3(Graphics2D g2) {
 	
-		g2.drawString("A sample coffee cup by Phill Conrad", 20,20);
+		g2.drawString("A sample of coffee cup by Phill Conrad", 20,20);
 		g2.drawString("Apple pie and created by Zhansaya Abdikarimova",20,40);
 
-		// Draw some coffee cups, just for variety
-		CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-		g2.setColor(Color.GREEN);   g2.draw(smallCC);
+		// Draw some coffee cups
+		CoffeeCup cc = new CoffeeCup(20,50,70,50);
+		g2.setColor(Color.RED);   g2.draw(cc);
 
-		// Here some apple pies
-	    Pie p1 = new Pie(125, 250, 75);
+		// Here some simple pie and  apple pies
+		Pie p1 = new Pie(125, 250, 75);
 		g2.setColor(Color.CYAN);
 		g2.draw(p1);  
 

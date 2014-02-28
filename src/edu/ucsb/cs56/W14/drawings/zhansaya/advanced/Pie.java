@@ -33,23 +33,21 @@ public class Pie extends GeneralPathWrapper implements Shape
        @param centery  the y coordinate for the center of the pie
        @param radius  the radius of the pie
      */
-    public Pie(double centerx, double centery, double radius)
-    {
-    
-		Circle pie = new Circle(centerx,centery,radius);
 
+    public Pie(double centerx, double centery, double radius){
     
-    	// put the whole pie together
+	Circle pie = new Circle(centerx,centery,radius);
+
+	// put the whole pie together
         GeneralPath wholePie = this.get();
-		// add edge of the pie
+	
+	// add edge of the pie
         drawEdges(wholePie, centerx, centery, radius);
-		
-        wholePie.append(pie, false);
-        
+	wholePie.append(pie, false);
     }
 
     /**
-	   This function is a helper function to draw edges of the pie.
+       This function is a helper function to draw edges of the pie.
 
        @param thisPath  the GeneralPath wrapper object
        @param centerx  the x coordinate for the center of the pie
@@ -57,11 +55,11 @@ public class Pie extends GeneralPathWrapper implements Shape
     */
     
     
-    public void drawEdges(GeneralPath thisPath, double centerx, double centery, double radius)
-    {
-    	Circle edge = new Circle(centerx,centery,radius+10);
-
-    	thisPath.append(edge, false);
+    public void drawEdges(GeneralPath thisPath, double centerx, 
+			  double centery, double radius){
+    	
+	Circle edge = new Circle(centerx,centery,radius+10);
+	thisPath.append(edge, false);
     }
 
 }
