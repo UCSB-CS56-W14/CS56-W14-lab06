@@ -26,13 +26,7 @@ import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
 */
 public class ApplePie extends Pie implements Shape
 {
-	/**
-	 * No arguments constructor
-	 */ 
-	public ApplePie(){
-		// Stub
-	}
-	
+       
 	/**
 	 * Contructor for object ApplePie
 	 */
