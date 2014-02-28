@@ -21,7 +21,7 @@ public class SimpleGui1 {
 	int red, green, blue;
 	JFrame frame = new JFrame() ;
 	JButton button = new JButton("ravioli ravioli, give me the formuoli") ;
-	red = (int)(Math.random()*256);
+	red = (int)(Math.random()*256); // Decided to use a random color to mix things up
 	green = (int)(Math.random()*256);
 	blue = (int)(Math.random()*256);
 	java.awt.Color myColor = new java.awt.Color(red,blue,green);

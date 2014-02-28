@@ -31,7 +31,18 @@ public class AllMyDrawings
 
     public static void drawPicture1(Graphics2D g2) {
 
-	House h1 = new House(100,250,50,75);
+        Bongo large = new Bongo(100,50,225,150);
+	Bongo smallCC = new Bongo(20,50,40,30);
+	Bongo tallSkinny = new Bongo(20,150,20,40);
+	Bongo shortFat = new Bongo(20,250,40,20);
+	
+	g2.setColor(Color.RED);     g2.draw(large);
+	g2.setColor(Color.GREEN);   g2.draw(smallCC);
+	g2.setColor(Color.BLUE);    g2.draw(tallSkinny);
+	g2.setColor(Color.MAGENTA); g2.draw(shortFat);
+
+	/*
+        House h1 = new House(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(h1);
 	
 	// Make a black house that's half the size, 
@@ -71,6 +82,7 @@ public class AllMyDrawings
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
 	g2.drawString("A few houses by Phill Conrad", 20,20);
+	*/
     }
 
 
