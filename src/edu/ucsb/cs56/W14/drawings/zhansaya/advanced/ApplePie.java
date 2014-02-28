@@ -26,11 +26,20 @@ import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
 */
 public class ApplePie extends Pie implements Shape
 {
-	public ApplePie(double centerx, double centery, double radius)
-	{
+	/**
+	 * No arguments constructor
+	 */ 
+	public ApplePie(){
+		// Stub
+	}
+	
+	/**
+	 * Contructor for object ApplePie
+	 */
+	 
+	 public ApplePie(double centerx, double centery, double radius){
 		// call the constructor of Pie
 		super(centerx, centery, radius);
-
 		GeneralPath wholePie = this.get();
 
 		// append the apples within the Pie
@@ -60,35 +69,26 @@ public class ApplePie extends Pie implements Shape
 		appendApple(wholePie, centerx-radius/2-radius/4, centery+(radius/2), radius/3);
 		
 		appendApple(wholePie, centerx, centery+(radius)-radius/4, radius/3);
-		
-		
-		
-		
-		
 	}
 
-
 	/**
-       This function is a helper function to append the apples within the pie
-       @param thisPath  the GeneralPath wrapper object
-       @param centerx  the x coordinate for the center of the apple
-       @param centery  the y coordinate for the center of the apple
-       @param radius radius of a semicircle of an apple
-       
-     */
-    public void appendApple(GeneralPath thisPath, double centerx, 
-			     double centery, double radius)
-    {
+	 * This function is a helper function to append the apples within the pie
+	 * @param thisPath  the GeneralPath wrapper object
+	 * @param centerx  the x coordinate for the center of the apple
+	 * @param centery  the y coordinate for the center of the apple
+	 * @param radius radius of a semicircle of an apple
+	 */
+    	
+    	public void appendApple(GeneralPath thisPath, double centerx, 
+    		double centery, double radius){
     
-    
-    Arc2D.Double a1 = new  Arc2D.Double(centerx, centery,radius,radius,0,180,
+    		Arc2D.Double a1 = new  Arc2D.Double(centerx, centery,radius,radius,0,180,
                          Arc2D.OPEN);
+    		thisPath.append(a1,false);
     
-    thisPath.append(a1,false);
-    
-    Line2D.Double l1 = new Line2D.Double(centerx,centery+radius/2,
+    		Line2D.Double l1 = new Line2D.Double(centerx,centery+radius/2,
 					     centerx+radius,centery+radius/2);
-	thisPath.append(l1,false);	     
+			thisPath.append(l1,false);	     
 	
-    }
+    	}
 }
