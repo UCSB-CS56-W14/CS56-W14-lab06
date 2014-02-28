@@ -19,11 +19,11 @@ import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
 
 /**
    A subclass of Pie that adds apples on the pie to make it look more realistic. 
+      
    @author Zhansaya Abdikarimova
    @version Lab 06, CS56, W14
    
 */
-
 public class ApplePie extends Pie implements Shape
 {
 	public ApplePie(double centerx, double centery, double radius)
@@ -68,22 +68,25 @@ public class ApplePie extends Pie implements Shape
 	}
 
 
-    /**
-       This function is a helper funtion to append the apples within the pie
+	/**
+       This function is a helper function to append the apples within the pie
        @param thisPath  the GeneralPath wrapper object
        @param centerx  the x coordinate for the center of the apple
        @param centery  the y coordinate for the center of the apple
        @param radius radius of a semicircle of an apple
        
-    */
-    
+     */
     public void appendApple(GeneralPath thisPath, double centerx, 
-			     double centery, double radius){
-	Arc2D.Double a1 = new  Arc2D.Double(centerx, centery,radius,radius,0,180,
-                         Arc2D.OPEN);
-	thisPath.append(a1,false);
+			     double centery, double radius)
+    {
     
-	Line2D.Double l1 = new Line2D.Double(centerx,centery+radius/2,
+    
+    Arc2D.Double a1 = new  Arc2D.Double(centerx, centery,radius,radius,0,180,
+                         Arc2D.OPEN);
+    
+    thisPath.append(a1,false);
+    
+    Line2D.Double l1 = new Line2D.Double(centerx,centery+radius/2,
 					     centerx+radius,centery+radius/2);
 	thisPath.append(l1,false);	     
 	
