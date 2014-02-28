@@ -23,7 +23,7 @@ import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
 public class HouseWithWindows extends House implements Shape
 {
     /**
-     * Constructor for objects of class CoffeeCup
+     * Constructor for objects of class HouseWithWindows
      */
     public HouseWithWindows(double x, double y, double width, double height)
     {

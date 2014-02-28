@@ -26,7 +26,7 @@ import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
 
 public class AllMyDrawings
 {
-    /** Draw a picture with a few houses 
+    /** Draw a picture with a few houses and fruits
      */
 
     public static void drawPicture1(Graphics2D g2) {
@@ -68,13 +68,21 @@ public class AllMyDrawings
 	
 	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
+	CandiedFruitWithOrange cf1 = new CandiedFruitWithOrange(400, 200, 600);
+	g2.setColor(Color.RED); 
+	g2.draw(cf1);
+
+	CandiedFruitWithOrange cf2 = new CandiedFruitWithOrange(200, 130, 500);
+	g2.setColor(Color.ORANGE); 
+	g2.draw(cf2);
+
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A few houses by Phill Conrad", 20,20);
+	g2.drawString("A few houses by Phill Conrad and a few fruits by Oliver", 20,20);
     }
 
 
-    /** Draw a picture with a few houses and coffee cups
+    /** Draw a picture with a few houses, fruits and coffee cups
      */
     public static void drawPicture2(Graphics2D g2) {
 
@@ -130,10 +138,22 @@ public class AllMyDrawings
 	g2.draw(hw3);
 	
 	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
-	
+
+	CandiedFruitWithOrange cf1 = new CandiedFruitWithOrange(400, 200, 600);
+	g2.setColor(Color.RED); 
+	g2.draw(cf1);
+
+	CandiedFruitWithOrange cf2 = new CandiedFruitWithOrange(200, 130, 500);
+	g2.setColor(Color.ORANGE); 
+	g2.draw(cf2);
+	 
+	Shape hw4 = ShapeTransforms.rotatedCopyOf(cf2, Math.PI/3.0);
+	g2.setColor(Color.BLUE);
+	g2.draw(hw4);	
+
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A bunch of Coffee Cups and a few houses by Phill Conrad", 20,20);
+	g2.drawString("A bunch of Coffee Cups, a few houses by Phill Conrad and a bunch of fruits by Oliver", 20,20);
     }
   
     /** Draw a different picture with a few houses and coffee cups
@@ -143,16 +163,45 @@ public class AllMyDrawings
 	
 	// label the drawing
 	
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
+	g2.drawString("A bunch of Coffee Cups by Phill Conrad and a series of fruits by Oliver (Looks soooooo delicious!!!)", 20,20);
 
 	
-	// Draw some coffee cups.
+	// Draw some coffee cups and some fruits.
 	
        CoffeeCup large = new CoffeeCup(100,50,225,150);
        CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
        
        g2.setColor(Color.RED);     g2.draw(large);
        g2.setColor(Color.GREEN);   g2.draw(smallCC);
+
+	CandiedFruitWithOrange cf1 = new CandiedFruitWithOrange(400, 180, 500);
+	g2.setColor(Color.ORANGE); 
+	g2.draw(cf1);
+
+	CandiedFruitWithOrange cf2 = new CandiedFruitWithOrange(400, 170, 450);
+	g2.setColor(Color.YELLOW);
+	Shape hw1 = ShapeTransforms.rotatedCopyOf(cf2, Math.PI*13.0/7.0); 
+	g2.draw(hw1);
+
+	CandiedFruitWithOrange cf3 = new CandiedFruitWithOrange(400, 160, 400);
+	g2.setColor(Color.GREEN);
+	Shape hw2 = ShapeTransforms.rotatedCopyOf(cf3, Math.PI*11.0/6.0); 
+	g2.draw(hw2);
+
+	CandiedFruitWithOrange cf4 = new CandiedFruitWithOrange(400, 150, 350);
+	g2.setColor(Color.BLUE);
+	Shape hw3 = ShapeTransforms.rotatedCopyOf(cf4, Math.PI*9.0/5.0); 
+	g2.draw(hw3);
+
+	CandiedFruitWithOrange cf5 = new CandiedFruitWithOrange(400, 140, 300);
+	g2.setColor(Color.MAGENTA);
+	Shape hw4 = ShapeTransforms.rotatedCopyOf(cf5, Math.PI*7.0/4.0); 
+	g2.draw(hw4);
+
+	CandiedFruitWithOrange cf6 = new CandiedFruitWithOrange(400, 130, 250);
+	g2.setColor(Color.RED);
+	Shape hw5 = ShapeTransforms.rotatedCopyOf(cf6, Math.PI*5.0/3.0); 
+	g2.draw(hw5);
        
        
     }
