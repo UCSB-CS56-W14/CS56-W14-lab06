@@ -11,7 +11,7 @@
    <property name="packagePrefix" value="edu.ucsb.cs56.w14.drawings" />
    <property name="pconradPackage" value="${packagePrefix}.pconrad" />
    <property name="myPackage" 
-	     value="${packagePrefix}.${username}" />
+	     value="${packagePrefix}.asdf" />
    
    <property name="webRoot" value="${env.HOME}/public_html/cs56" />
    <property name="webBaseURL" value="http://www.cs.ucsb.edu/~${env.USER}/cs56" />
