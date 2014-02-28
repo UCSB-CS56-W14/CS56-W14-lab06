@@ -32,15 +32,6 @@ public class CameraWithStand extends Camera implements Shape
 
 	// get the GeneralPath that we are going to append stuff to
 	GeneralPath gp = this.get();
-	
-	// Make three windows, spaced like this, where w=width/10.0;
-	// | +--+ +--+ +--+ |
-	// | |  | |  | |  | |
-	// | +--+ +--+ +--+ |
-	// |w 2w w 2w w w2 w|
-	//
-	// The top of window will be at y + 0.5*height and the
-	// height of the window is 0.25height;
 
 	// Make a stand where 
 
