@@ -34,8 +34,16 @@ public class AllMyDrawings
 	Stereo h1 = new Stereo(100,250,100,75);
 	g2.setColor(Color.RED); g2.draw(h1);
 
-	StereoWithButtons h2 = new StereoWithButtons(300,250,100,75);
+	Stereo h3 = new Stereo(50,100,70,50);
+	g2.setColor(Color.RED); g2.draw(h3);
+
+	StereoWithButtons h2 = new StereoWithButtons(400,250,100,75);
 	g2.setColor(Color.BLACK); g2.draw(h2);
+
+	StereoWithButtons h4 = new StereoWithButtons(250,300,50,40);
+	g2.setColor(Color.GREEN); g2.draw(h4);
+
+	
 	
 	// Make a black house that's half the size, 
 	// and moved over 150 pixels in x direction
@@ -50,26 +58,26 @@ public class AllMyDrawings
 
 	// Draw some coffee cups.
 	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	CoffeeCup tallSkinny = new CoffeeCup(20,150,20,40);
-	CoffeeCup shortFat = new CoffeeCup(20,250,40,20);
+	Stereo large = new Stereo(100,100,225,150);
+	StereoWithButtons smallCC = new StereoWithButtons(20,100,40,30);
+	Stereo tallSkinny = new Stereo(20,150,20,40);
+	StereoWithButtons shortFat = new StereoWithButtons(20,250,40,20);
 	
 	g2.setColor(Color.RED);     g2.draw(large);
 	g2.setColor(Color.GREEN);   g2.draw(smallCC);
 	g2.setColor(Color.BLUE);    g2.draw(tallSkinny);
 	g2.setColor(Color.MAGENTA); g2.draw(shortFat);
 	
-	House h1 = new House(100,250,50,75);
+	Stereo h1 = new Stereo(100,250,50,75);
 	g2.setColor(Color.CYAN); g2.draw(h1);
 	
-	// Make a black house that's half the size, 
+	// Make a black stereo that's half the size, 
 	// and moved over 150 pixels in x direction
 	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
 	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
 	g2.setColor(Color.BLACK); g2.draw(h2);
 	
-	// Here's a house that's 4x as big (2x the original)
+	// Here's a stereo that's 4x as big (2x the original)
 	// and moved over 150 more pixels to right.
 	h2 = ShapeTransforms.scaledCopyOfLL(h2,4,4);
 	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
@@ -86,24 +94,19 @@ public class AllMyDrawings
 	g2.setColor(new Color(0x002FA7)); 
 	g2.draw(h2); 
 	
-	// Draw two houses with Windows
-	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
-	
-	g2.draw(hw1);
-	g2.setColor(new Color(0x8F00FF)); 
-
-	// Rotate the second house 45 degrees around its center.
-	Shape hw3 = ShapeTransforms.rotatedCopyOf(hw2, Math.PI/4.0);
-
-	g2.draw(hw3);
-	
 	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
 	
 	g2.setStroke(orig);
 	g2.setColor(Color.BLACK); 
-	g2.drawString("A bunch of Coffee Cups and a few houses by Phill Conrad", 20,20);
+	g2.drawString("A bunch of Stereos by Sumer Sinha", 20,20);
+
+	Stereo hw8 = new Stereo(300,350,100,70);
+       
+	g2.setColor(new Color(0x8F00FF)); 
+
+	// Rotate the second stereo 45 degrees around its center.
+	Shape hw9 = ShapeTransforms.rotatedCopyOf(hw8, Math.PI/4.0);
+	g2.draw(hw9);
     }
   
     /** Draw a different picture with a few houses and coffee cups
@@ -113,13 +116,23 @@ public class AllMyDrawings
 	
 	// label the drawing
 	
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
+	g2.drawString("A bunch of Stereos by Sumer Sinha", 20,20);
 
 	
-	// Draw some coffee cups.
 	
-       CoffeeCup large = new CoffeeCup(100,50,225,150);
-       CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
+       StereoWithButtons large = new StereoWithButtons(100,150,225,150);
+       StereoWithButtons smallCC = new StereoWithButtons(60,150,40,30);
+
+	
+       Stereo hw1 = new Stereo(100,400,80,30);
+       Stereo hw2 = new Stereo(400,250,200,300);
+	
+	g2.draw(hw1);
+	g2.setColor(new Color(0x8F00FF)); 
+
+	// Rotate the second stereo 45 degrees around its center.
+	Shape hw3 = ShapeTransforms.rotatedCopyOf(hw2, Math.PI/4.0);
+	g2.draw(hw3);
        
        g2.setColor(Color.RED);     g2.draw(large);
        g2.setColor(Color.GREEN);   g2.draw(smallCC);
