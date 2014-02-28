@@ -36,6 +36,7 @@ public class Popsicle extends GeneralPathWrapper implements Shape
      */
     public Popsicle(double x, double y, double width, double height)
     {
+	// creates ellipse base shape of popsicle
 	Ellipse2D.Double popsicle = new Ellipse2D.Double(x, y, width, height);
 	GeneralPath gp = this.get();
 	gp.append(popsicle, false);

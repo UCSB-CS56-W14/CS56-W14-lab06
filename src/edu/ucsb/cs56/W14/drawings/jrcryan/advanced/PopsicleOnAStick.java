@@ -48,7 +48,7 @@ public class PopsicleOnAStick extends Popsicle implements Shape
 	double stickWidth = width * .3333;
 	Rectangle2D.Double stick = new Rectangle2D.Double(stickX, stickY, stickWidth, stickHeight);
 
-	// gets popsicle body and appends stick
+	// gets popsicle body and appends stick to bottom center
 	GeneralPath popsicleOnStick = this.get();
 	popsicleOnStick.append(stick, false);
     }
