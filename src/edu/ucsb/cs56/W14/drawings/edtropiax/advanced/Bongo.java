@@ -38,7 +38,7 @@ public class Bongo extends GeneralPathWrapper implements Shape
         final double ORIG_ULX = 100.0; 
         final double ORIG_ULY = 100.0; 
         final double ORIG_HEIGHT = 300.0; 
-        final double ORIG_WIDTH = 400.0; 
+        final double ORIG_WIDTH = 900.0; 
                 
         GeneralPath leftSide = new GeneralPath();
       

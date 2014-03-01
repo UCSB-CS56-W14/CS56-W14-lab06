@@ -20,18 +20,19 @@ import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
  * A class with static methods for drawing various pictures
  * 
  * @author Phill Conrad 
- * @version for CS10, lab06, Spring 2009
+ * @author Marcus Liou
+ * @version for CS56, W14, 2/28/2014
  */
 
 
 public class AllMyDrawings
 {
-    /** Draw a picture with a few houses 
+    /** Draw a picture with a few bongos
      */
 
     public static void drawPicture1(Graphics2D g2) {
 
-        Bongo large = new Bongo(100,50,225,150);
+	Bongo large = new Bongo(100,50,225,150);
 	Bongo smallCC = new Bongo(20,50,40,30);
 	Bongo tallSkinny = new Bongo(20,150,20,40);
 	Bongo shortFat = new Bongo(20,250,40,20);
@@ -40,132 +41,64 @@ public class AllMyDrawings
 	g2.setColor(Color.GREEN);   g2.draw(smallCC);
 	g2.setColor(Color.BLUE);    g2.draw(tallSkinny);
 	g2.setColor(Color.MAGENTA); g2.draw(shortFat);
+	
+	g2.drawString("Some bongos by Marcus Liou", 20,20);
 
-	/*
-        House h1 = new House(100,250,50,75);
-	g2.setColor(Color.CYAN); g2.draw(h1);
-	
-	// Make a black house that's half the size, 
-	// and moved over 150 pixels in x direction
-
-	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
-	g2.setColor(Color.BLACK); g2.draw(h2);
-	
-	// Here's a house that's 4x as big (2x the original)
-	// and moved over 150 more pixels to right.
-	h2 = ShapeTransforms.scaledCopyOfLL(h2,4,4);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
-	
-	// We'll draw this with a thicker stroke
-	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
-	
-	// for hex colors, see (e.g.) http://en.wikipedia.org/wiki/List_of_colors
-	// #002FA7 is "International Klein Blue" according to Wikipedia
-	// In HTML we use #, but in Java (and C/C++) its 0x
-	
-	Stroke orig=g2.getStroke();
-	g2.setStroke(thick);
-	g2.setColor(new Color(0x002FA7)); 
-	g2.draw(h2); 
-	
-	// Draw two houses with Windows
-	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
-	
-	g2.draw(hw1);
-	g2.setColor(new Color(0x8F00FF)); g2.draw(hw2);
-	
-	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
-	
-	g2.setStroke(orig);
-	g2.setColor(Color.BLACK); 
-	g2.drawString("A few houses by Phill Conrad", 20,20);
-	*/
     }
 
 
-    /** Draw a picture with a few houses and coffee cups
+    /** Draw a marching band
      */
     public static void drawPicture2(Graphics2D g2) {
 
-	// Draw some coffee cups.
-	
-	CoffeeCup large = new CoffeeCup(100,50,225,150);
-	CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-	CoffeeCup tallSkinny = new CoffeeCup(20,150,20,40);
-	CoffeeCup shortFat = new CoffeeCup(20,250,40,20);
-	
-	g2.setColor(Color.RED);     g2.draw(large);
-	g2.setColor(Color.GREEN);   g2.draw(smallCC);
-	g2.setColor(Color.BLUE);    g2.draw(tallSkinny);
-	g2.setColor(Color.MAGENTA); g2.draw(shortFat);
-	
-	House h1 = new House(100,250,50,75);
-	g2.setColor(Color.CYAN); g2.draw(h1);
-	
-	// Make a black house that's half the size, 
-	// and moved over 150 pixels in x direction
-	Shape h2 = ShapeTransforms.scaledCopyOfLL(h1,0.5,0.5);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
-	g2.setColor(Color.BLACK); g2.draw(h2);
-	
-	// Here's a house that's 4x as big (2x the original)
-	// and moved over 150 more pixels to right.
-	h2 = ShapeTransforms.scaledCopyOfLL(h2,4,4);
-	h2 = ShapeTransforms.translatedCopyOf(h2,150,0);
-	
-	// We'll draw this with a thicker stroke
-	Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);       
-	
-	// for hex colors, see (e.g.) http://en.wikipedia.org/wiki/List_of_colors
-	// #002FA7 is "International Klein Blue" according to Wikipedia
-	// In HTML we use #, but in Java (and C/C++) its 0x
-	
-	Stroke orig=g2.getStroke();
-	g2.setStroke(thick);
-	g2.setColor(new Color(0x002FA7)); 
-	g2.draw(h2); 
-	
-	// Draw two houses with Windows
-	
-	HouseWithWindows hw1 = new HouseWithWindows(50,350,40,75);
-	HouseWithWindows hw2 = new HouseWithWindows(200,350,200,100);
-	
-	g2.draw(hw1);
-	g2.setColor(new Color(0x8F00FF)); 
 
-	// Rotate the second house 45 degrees around its center.
-	Shape hw3 = ShapeTransforms.rotatedCopyOf(hw2, Math.PI/4.0);
+	Drumset d1 = new Drumset(50,50,50,20);
+	Drumset d2 = new Drumset(150,50,50,20);
+	Drumset d3 = new Drumset(250,50,50,20);
+	Drumset d4 = new Drumset(350,50,50,20);
+	Drumset d5 = new Drumset(50,150,50,20);
+	Drumset d6 = new Drumset(150,150,50,20);
+	Drumset d7 = new Drumset(250,150,50,20);
+	Drumset d8 = new Drumset(350,150,50,20);
+	Drumset d9 = new Drumset(50,250,50,20);
+	Drumset d10 = new Drumset(150,250,50,20);
+	Drumset d11 = new Drumset(250,250,50,20);
+	Drumset d12 = new Drumset(350,250,50,20);
+	Drumset d13 = new Drumset(50,350,50,20);
+	Drumset d14 = new Drumset(150,350,50,20);
+	Drumset d15 = new Drumset(250,350,50,20);
+	Drumset d16 = new Drumset(350,350,50,20);
 
-	g2.draw(hw3);
-	
-	// @@@ FINALLY, SIGN AND LABEL YOUR DRAWING
-	
-	g2.setStroke(orig);
-	g2.setColor(Color.BLACK); 
-	g2.drawString("A bunch of Coffee Cups and a few houses by Phill Conrad", 20,20);
+        g2.setColor(Color.RED);
+        g2.draw(d1);  g2.draw(d2);  g2.draw(d3);  g2.draw(d4);  
+	g2.draw(d5);  g2.draw(d6);  g2.draw(d7);  g2.draw(d8);  
+	g2.draw(d9);  g2.draw(d10);  g2.draw(d11);g2.draw(d12);
+	g2.draw(d13);  g2.draw(d14);  g2.draw(d15);  g2.draw(d16);
+
+	g2.drawString("A marching band by Marcus Liou", 20,20);
     }
   
-    /** Draw a different picture with a few houses and coffee cups
+    /** Draw a different picture with a few drums and bongos
      */
 
     public static void drawPicture3(Graphics2D g2) {
 	
 	// label the drawing
 	
-	g2.drawString("A bunch of Coffee Cups by Phill Conrad", 20,20);
+	g2.drawString("A musical conundrum by Marcus Liou", 20,20);
 
 	
-	// Draw some coffee cups.
+	// Draw some weird drums and bongos
 	
-       CoffeeCup large = new CoffeeCup(100,50,225,150);
-       CoffeeCup smallCC = new CoffeeCup(20,50,40,30);
-       
-       g2.setColor(Color.RED);     g2.draw(large);
-       g2.setColor(Color.GREEN);   g2.draw(smallCC);
-       
+       Bongo topLeft = new Bongo(50,50,50,20);
+       Drumset botLeft = new Drumset(50,100,50,20);
+       Drumset topRight = new Drumset(100,50,50,20);
+       Bongo botRight = new Bongo(100,100,50,20);
+  
+       g2.setColor(Color.RED);     g2.draw(topLeft);
+       g2.setColor(Color.GREEN);   g2.draw(botLeft);
+       g2.setColor(Color.MAGENTA); g2.draw(topRight);
+       g2.setColor(Color.BLUE);    g2.draw(botRight);
        
     }
     
