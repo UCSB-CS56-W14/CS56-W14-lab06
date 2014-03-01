@@ -106,7 +106,6 @@ public class AllMyDrawings
 		// label the drawing
 	
 		g2.drawString("Even more laptops, by David Coffill", 20,20);
-		Stroke orig=g2.getStroke();
 
 
 

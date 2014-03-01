@@ -64,11 +64,11 @@ public class WritePictureToFile
      Graphics2D g2 = bi.createGraphics();
       
      if (whichPicture.equals("1")) {
-	 AllMyDrawings.drawPicture1(g2);
+	 edu.ucsb.cs56.w14.drawings.dcoffill.advanced.AllMyDrawings.drawPicture1(g2);
      } else if (whichPicture.equals("2")) {
 	 AllMyDrawings.drawPicture2(g2);
      } else if (whichPicture.equals("3")) {
-      	 AllMyDrawings.drawPicture2(g2);
+      	 AllMyDrawings.drawPicture3(g2);
      }
 
      final String imageType = "png"; // choices: "gif", "png", "jpg"
