@@ -77,45 +77,5 @@ public class Hourglass extends GeneralPathWrapper implements Shape
 	wholeHourglass.append(secondDiagonal, false);
 	wholeHourglass.append(top, false);
 	wholeHourglass.append(bottom, false); 
-			
-	   
-		    
-        // Rather than having to scale at the end, we can just
-        // draw things the right way to begin with, using the
-        // x, y, width and height.   If you haven't already
-        // hard coded a particular drawing, this may be an easier
-        // way.
-        
-	/*
-        double firstStoryHeight = .75 * height;
-        double roofHeight = height - firstStoryHeight;
-        
-        double firstStoryUpperLeftY = y + roofHeight;
-        
-        // Make the first story
-        
-        Rectangle2D.Double firstStory = 
-            new Rectangle2D.Double(x, firstStoryUpperLeftY ,
-                          width, firstStoryHeight);
-                          
-        // make the roof.   Remember that y goes DOWN the page,
-        // so we ADD to y to get a "lower" value on the screen
-        
-        Line2D.Double leftRoof = 
-            new Line2D.Double (x, y + roofHeight,
-                               x + width/2.0, y);
-                               
-        Line2D.Double rightRoof =
-            new Line2D.Double (x + width/2.0, y,
-                               x + width, y + roofHeight);
-
-        // put the whole house together
-       
-        GeneralPath wholeHouse = this.get();
-        wholeHouse.append(firstStory, false);
-        wholeHouse.append(leftRoof, false);
-        wholeHouse.append(rightRoof, false); 
-        */
-    }
-
+     }
 }
