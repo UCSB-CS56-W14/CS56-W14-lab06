@@ -8,7 +8,7 @@ public class AnimatedPictureViewer {
 
     private DrawPanel panel = new DrawPanel();
     
-    private Television tv = new Television(100, 100, 100, 100);
+    private Television tv = new TelevisionAntenna(100, 100, 100, 100);
     
     Thread anim;   
     
@@ -16,6 +16,7 @@ public class AnimatedPictureViewer {
     private int y = 100;
     
     private int dx = 5;
+    private int dy = 5;
 
     public static void main (String[] args) {
       new AnimatedPictureViewer().go();
@@ -59,7 +60,7 @@ public class AnimatedPictureViewer {
 
           // Draw the Ipod
           g2.setColor(Color.RED);
-          Television test = new Television(x, y, 100, 100);
+          TelevisionAntenna test = new TelevisionAntenna(x, y, 100, 100);
           g2.draw(test);
        }
     }
@@ -70,10 +71,11 @@ public class AnimatedPictureViewer {
           while (true) {
             // Bounce off the walls
 
-            if (x >= 400) { dx = -5; }
-            if (x <= 50) { dx = 5; }
+            if (x >= 400) { dx = -5; dy = -5; }
+            if (x <= 50) { dx = 5; dy = 5; }
             
-            x += dx;                
+            x += dx;
+	    y += dy;	                
             panel.repaint();
             Thread.sleep(50);
           }
