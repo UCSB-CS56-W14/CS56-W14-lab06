@@ -3,20 +3,25 @@ package edu.ucsb.cs56.w14.drawings.maxsorenson.advanced;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.lang.Math;
 
 public class AnimatedPictureViewer {
 
     private DrawPanel panel = new DrawPanel();
     
-    private Television tv = new TelevisionAntenna(100, 100, 100, 100);
+    private TelevisionAntenna tv = new TelevisionAntenna(100, 100, 100, 100);
     
     Thread anim;   
     
+	private int R, G, B;
+	
     private int x = 100;
     private int y = 100;
     
     private int dx = 5;
     private int dy = 5;
+
+	private int timesHitWall = 0;
 
     public static void main (String[] args) {
       new AnimatedPictureViewer().go();
@@ -58,9 +63,16 @@ public class AnimatedPictureViewer {
           g2.setColor(Color.white);
           g2.fillRect(0,0,this.getWidth(), this.getHeight());
 
-          // Draw the Ipod
-          g2.setColor(Color.RED);
+          // Draw the Television
+	      R = (int) (Math.random() * 255);
+		  G = (int) (Math.random() * 255);
+		  B = (int) (Math.random() * 255);
+		  Color randomColor = new Color(R, G, B);
+		Stroke thick = new BasicStroke (4.0f, 		BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);  
+ 	g2.setStroke(thick);
+          g2.setColor(randomColor);
           TelevisionAntenna test = new TelevisionAntenna(x, y, 100, 100);
+		  
           g2.draw(test);
        }
     }
@@ -71,11 +83,11 @@ public class AnimatedPictureViewer {
           while (true) {
             // Bounce off the walls
 
-            if (x >= 400) { dx = -5; dy = -5; }
-            if (x <= 50) { dx = 5; dy = 5; }
+            if (x >= 400) { dx = -5; dy = -5; timesHitWall++; }
+            if (x <= 50) { dx = 5; dy = 5; timesHitWall++; }
             
             x += dx;
-	    y += dy;	                
+	    	y += dy;	                
             panel.repaint();
             Thread.sleep(50);
           }
