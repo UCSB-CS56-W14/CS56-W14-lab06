@@ -126,6 +126,13 @@
     </java>
   </target>
 
+  <target name="gradeMPV3" depends="compile" 
+	  description="run MultiPictureViewer from student subdir with arg 3">
+    <java fork="true" classpathref="project.class.path" classname="${packagePrefix}.sumers">
+      <arg value="3" />
+    </java>
+  </target>
+
   <target name="pconradWPTF1" depends="compile" 
 	  description="run WritePictureToFile from pconrad;create images/pic1">
     <mkdir dir="images" />
