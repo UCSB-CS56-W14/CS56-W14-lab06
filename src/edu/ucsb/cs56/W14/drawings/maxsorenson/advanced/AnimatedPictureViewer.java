@@ -20,10 +20,13 @@ public class AnimatedPictureViewer {
 	
     private int x = 100;
     private int y = 100;
+    private int x2 = x;
+    private int y2 = y;
     
     private int dx = 5;
     private int dy = 5;
-
+    
+    private float sThick=4.0f;
     private int counter = 0;
     private double scale = 0.5;
     private boolean hitWall = false;
@@ -75,13 +78,16 @@ public class AnimatedPictureViewer {
 	  B = (int) (Math.random() * 255);
 	  Color randomColor = new Color(R, G, B);
 	  //stroke thickness
-	  Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);  
+	  if((counter%3) == 0) sThick = 10.0f;
+	  else sThick = 4.0f;
+	  Stroke thick = new BasicStroke (sThick, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);  
 	  g2.setStroke(thick);
           g2.setColor(randomColor);
           TelevisionAntenna test = new TelevisionAntenna(x, y, 100, 100);
+	  Television second = new Television(x2+300, y2+300, 100, 100);
 	  Shape test2 = ShapeTransforms.scaledCopyOf(test,scale,scale); 
-          if( ((int)counter)%3 == 0) g2.draw(test2);
-	  else g2.draw(test);
+          if((counter%2) == 0) {g2.draw(test2); g2.draw(second);}
+	  else {g2.draw(test); g2.draw(second);} 
 	  int i = 0;
 	  while(hitWall == true) {
 	      g2.setFont(new Font("default", Font.BOLD, 50));
@@ -100,7 +106,9 @@ public class AnimatedPictureViewer {
 	      if (x >= 400) { dx = -5; dy = -5; hitWall=true; counter++; }
 	      if (x <= 50) { dx = 5; dy = 5; hitWall=true;counter++; }
             x += dx;
-	    y += dy;	                
+	    y += dy;
+	    x2 -= dx;
+	    y2 -= dy;
             panel.repaint();
             Thread.sleep(50);
           }
