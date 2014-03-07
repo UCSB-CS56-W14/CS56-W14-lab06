@@ -5,6 +5,9 @@ import java.awt.*;
 import java.awt.event.*;
 import java.lang.Math;
 
+import edu.ucsb.cs56.w14.drawings.utilities.ShapeTransforms;
+
+
 public class AnimatedPictureViewer {
 
     private DrawPanel panel = new DrawPanel();
@@ -13,7 +16,7 @@ public class AnimatedPictureViewer {
     
     Thread anim;   
     
-	private int R, G, B;
+    private int R, G, B;
 	
     private int x = 100;
     private int y = 100;
@@ -21,7 +24,9 @@ public class AnimatedPictureViewer {
     private int dx = 5;
     private int dy = 5;
 
-	private int timesHitWall = 0;
+    private int counter = 0;
+    private double scale = 0.5;
+    private boolean hitWall = false;
 
     public static void main (String[] args) {
       new AnimatedPictureViewer().go();
@@ -64,16 +69,25 @@ public class AnimatedPictureViewer {
           g2.fillRect(0,0,this.getWidth(), this.getHeight());
 
           // Draw the Television
-	      R = (int) (Math.random() * 255);
-		  G = (int) (Math.random() * 255);
-		  B = (int) (Math.random() * 255);
-		  Color randomColor = new Color(R, G, B);
-		Stroke thick = new BasicStroke (4.0f, 		BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);  
- 	g2.setStroke(thick);
+	  //randomize stroke color
+	  R = (int) (Math.random() * 255);
+	  G = (int) (Math.random() * 255);
+	  B = (int) (Math.random() * 255);
+	  Color randomColor = new Color(R, G, B);
+	  //stroke thickness
+	  Stroke thick = new BasicStroke (4.0f, BasicStroke.CAP_BUTT, BasicStroke.JOIN_BEVEL);  
+	  g2.setStroke(thick);
           g2.setColor(randomColor);
           TelevisionAntenna test = new TelevisionAntenna(x, y, 100, 100);
-		  
-          g2.draw(test);
+	  Shape test2 = ShapeTransforms.scaledCopyOf(test,scale,scale); 
+          if( ((int)counter)%3 == 0) g2.draw(test2);
+	  else g2.draw(test);
+	  int i = 0;
+	  while(hitWall == true) {
+	      g2.setFont(new Font("default", Font.BOLD, 50));
+	      g2.drawString("You hit a wall!", 100,300);
+	      hitWall=false;
+	  }
        }
     }
     
@@ -83,11 +97,10 @@ public class AnimatedPictureViewer {
           while (true) {
             // Bounce off the walls
 
-            if (x >= 400) { dx = -5; dy = -5; timesHitWall++; }
-            if (x <= 50) { dx = 5; dy = 5; timesHitWall++; }
-            
+	      if (x >= 400) { dx = -5; dy = -5; hitWall=true; counter++; }
+	      if (x <= 50) { dx = 5; dy = 5; hitWall=true;counter++; }
             x += dx;
-	    	y += dy;	                
+	    y += dy;	                
             panel.repaint();
             Thread.sleep(50);
           }
