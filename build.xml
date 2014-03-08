@@ -21,6 +21,8 @@
    <property name="imagesDest" value="${webRoot}/${projectName}/images" /> 
    <property name="imagesURL" value="${webBaseURL}/${projectName}/images" /> 
    <property name="javadocLink" value="http://java.sun.com/javase/7/docs/api/" />
+   <property name="studentName" value="edtropiax"/>
+   
    <path id="project.class.path">
          <pathelement location="build"/>
          <pathelement location="lib/junit-4.8.2.jar"/>
@@ -126,12 +128,34 @@
     </java>
   </target>
 
+  <!-- ****************** FOR GRADING HERE ************** -->
   <target name="gradeMPV3" depends="compile" 
 	  description="run MultiPictureViewer from student subdir with arg 3">
-    <java fork="true" classpathref="project.class.path" classname="${packagePrefix}.sumers">
+    <java fork="true" classpathref="project.class.path" classname="${packagePrefix}.${studentName}.advanced.MultiPictureViewer">
       <arg value="3" />
     </java>
   </target>
+
+  <target name="gradeMPV2" depends="compile" 
+	  description="run MultiPictureViewer from student subdir with arg 2">
+    <java fork="true" classpathref="project.class.path" classname="${packagePrefix}.${studentName}.advanced.MultiPictureViewer">
+      <arg value="2" />
+    </java>
+  </target>
+
+  <target name="gradePV" depends="compile" 
+	  description="run from PictureViewer from student subdirectory">
+    <java fork="true" 
+	  classpathref="project.class.path" 
+	  classname="${packagePrefix}.${studentName}.simple.PictureViewer" />
+  </target>
+
+  <target name="gradeSimpleGui1" depends="compile" 
+	  description="run simpleGui1 from student subdirectory">
+    <java fork="true" classpathref="project.class.path" 
+	  classname="${packagePrefix}.${studentName}.SimpleGui1" />
+  </target>
+  <!-- ****************** END GRADING SECTION ************** -->
 
   <target name="pconradWPTF1" depends="compile" 
 	  description="run WritePictureToFile from pconrad;create images/pic1">
