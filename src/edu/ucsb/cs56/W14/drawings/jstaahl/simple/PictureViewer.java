@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.w14.drawings.scottbishop.simple;
+package edu.ucsb.cs56.w14.drawings.jstaahl.simple;
 import javax.swing.JFrame;
 
 /** A viewer class to see a picture I drew with 
@@ -6,7 +6,7 @@ import javax.swing.JFrame;
  *  Rectangle, Line2D.Double, Ellipse2D.Double
  *  
  * @author P. Conrad 
- * @version CS56, Spring 2013, UCSB
+ * @version for UCSB CS56, W12, 02/09/2012
  */
 
 public class PictureViewer
@@ -18,10 +18,10 @@ public class PictureViewer
       // Set the size to whatever size you like (width, height)
       // For projects you turn in, lets not get any bigger than 640,480
       
-      frame.setSize(640,480); // @@@ MODIFY THIS LINE IF YOU LIKE
+      frame.setSize(640,480);
       
       // Set your own title
-      frame.setTitle("Phill's Drawing"); // @@@ MODIFY THIS LINE
+      frame.setTitle("Jakob Staahl's Drawing");
       
       // Always do this so that the red X (or red circle) works
       // to close the window. 
