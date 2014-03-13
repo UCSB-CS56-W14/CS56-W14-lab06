@@ -182,6 +182,24 @@
     <java fork="true" classpathref="project.class.path" 
 	  classname="${myPackage}.advanced.MultiPictureViewer" />
   </target>
+
+  <target name="myAnim" depends="compile" 
+	  description="run AnimatedPictureViewer from ${env.USER} subdir">
+    <java fork="true" classpathref="project.class.path" 
+	  classname="${myPackage}.advanced.AnimatedPictureViewer" />
+  </target>
+
+  <target name="jakeAnim" depends="compile" 
+	  description="Jake's example Pencil animation (jstaahl)">
+    <java fork="true" classpathref="project.class.path" 
+	  classname="edu.ucsb.cs56.w14.drawings.jstaahl.advanced.AnimatedPictureViewer" />
+  </target>
+
+  <target name="andrewAnim" depends="compile" 
+	  description="Andrews' example iPod animation (andrewberls)">
+    <java fork="true" classpathref="project.class.path" 
+	  classname="edu.ucsb.cs56.w14.drawings.andrewberls.advanced.AnimatedPictureViewer" />
+  </target>
   
   <target name="myMPV2" depends="compile" 
 	  description="run MultiPictureViewer from ${env.USER} subdir, arg 2">
