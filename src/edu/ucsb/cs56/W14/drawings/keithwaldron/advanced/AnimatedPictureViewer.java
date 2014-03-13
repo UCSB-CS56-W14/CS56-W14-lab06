@@ -28,6 +28,8 @@ public class AnimatedPictureViewer {
 	private int dy = 10;//y change
 	private int dr = 25;//radius change
 	private int roto = 0;//rotation 
+        private int stroke = 0;//line size
+        BasicStroke s= new BasicStroke(stroke);
 
 	//generate random color
 	Random rand = new Random(); 
@@ -52,7 +54,7 @@ public class AnimatedPictureViewer {
 		frame.getContentPane().add(panel);
 		frame.setSize(1000,1000);
 		frame.setVisible(true);
-		frame.setTitle("Keith Waldron's crazy glasses animation!");
+		frame.setTitle("Keith Waldron's crazy rave glasses!");
       
 		frame.getContentPane().addMouseListener(new MouseAdapter() {
 			public void mouseEntered(MouseEvent e){
@@ -82,12 +84,13 @@ public class AnimatedPictureViewer {
 			Graphics2D g2 = (Graphics2D) g;
 	
 			// Clears panel for updated image to be drawn
-			g2.setColor(Color.WHITE);
+			g2.setColor(Color.BLACK);
 			g2.fillRect(0,0,this.getWidth(), this.getHeight());
 	  
 			// Draw glasses 
 			g2.setColor(randomColor);
 			g2.rotate(Math.toRadians(roto), 500, 500);//rotate
+			g2.setStroke(s);//change line size
 			Glasses test = new Glasses(x, y, r);
 			g2.draw(test);
 		}//end paintCompoenent
@@ -113,7 +116,12 @@ public class AnimatedPictureViewer {
 					y += dy;//vertical movement
 					r += dr;//size change
 					roto += 5;//spin
-	 
+
+		 			if(stroke<40 || stroke == 0)stroke +=2 ;
+				        
+
+					s= new BasicStroke(stroke);
+
 					//change to random color
 					red = (int)(rand.nextFloat()*256);
 					green = (int)(rand.nextFloat()*256); 
