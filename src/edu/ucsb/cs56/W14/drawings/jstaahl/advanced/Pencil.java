@@ -26,6 +26,9 @@ public class Pencil extends GeneralPathWrapper implements Shape
     protected static final double RingThicknessScale = 0.05;
     protected static final double EraserHeightScale = 0.9;
     protected static final double RingHeightScale = 1.2;
+
+    private double width;
+    private double length;
     /**
        Constructor
 
@@ -36,7 +39,8 @@ public class Pencil extends GeneralPathWrapper implements Shape
      */
     public Pencil(double x, double y, double width, double length)
     {
-    
+	this.width = width;
+	this.length = length;
         // Rather than having to scale at the end, we can just
         // draw things the right way to begin with, using the
         // x, y, width and length.   If you haven't already hard
@@ -106,5 +110,7 @@ public class Pencil extends GeneralPathWrapper implements Shape
 	wholePencil.append(eraser, false); 
         
     }
+    /** Get the height of the eraser in pixels */
+    public double getEraserHeight() { return width*Pencil.RingHeightScale + width*Pencil.EraserHeightScale; }
 
 }
