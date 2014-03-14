@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.AffineTransform;
+//import java.awt.Shape;
+//import java.geom.Rectangle2D;
 
 
 public class AnimatedPictureViewer {
@@ -16,6 +18,8 @@ public class AnimatedPictureViewer {
     
     private int x = 100;
     private int y = 100;
+    private int width = 100;
+    private int height = 100;
     
     private int dy = 5;
 
@@ -62,10 +66,19 @@ public class AnimatedPictureViewer {
           // Draw the HourglassFull 
           g2.setColor(Color.BLUE);
 
-                            
-         // af.rotate(30.00);
+          HourglassFull test = new HourglassFull(x, y, width, height); 
 
-          HourglassFull test = new HourglassFull(x, y, 100, 100);
+          //AffineTransform af = new AffineTransform();
+          //Rectangle2D box = test.getBounds2D();
+
+          //double cx = box.getCenterX();
+          //double cy = box.getCenterY();
+
+          //af.translate(cx, cy);
+          //af.rotate(30.0);
+          //af.translate(-cx, -cy);                  
+
+          //Shape Hg = af.createTransformedShape(Hg);
 
           g2.draw(test);
                     
@@ -84,9 +97,10 @@ public class AnimatedPictureViewer {
             if (y <= 50) { dy = 5; }
             
             y += dy;
+            x += dy;
+	    width += dy;
+            height += dy;
 
-            AffineTransform af = new AffineTransform();
-            af.rotate(30.00, x, y);
 
             panel.repaint();
             Thread.sleep(50);
