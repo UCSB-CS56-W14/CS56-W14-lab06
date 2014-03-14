@@ -34,11 +34,21 @@ public class PumpkinJack extends Pumpkin implements Shape
 	GeneralPath gp = this.get();
 
 	Ellipse2D.Double eye1 =
-	    new Ellipse2D.Double(x-25,y-25,x-25,y-25);
+	    new Ellipse2D.Double(x+width/6,y+height/4,width*.25,height*.25);
 	Ellipse2D.Double eye2 =
-	    new Ellipse2D.Double(x+25, y-25,width-10, height +10);
+	    new Ellipse2D.Double(x+width/1.7,y+height/4,width*.25, height*.25);
 	Line2D.Double mouth =
-	    new Line2D.Double(x, y, width, height);
+	    new Line2D.Double(x+width/4.5, y+height/1.35, x+width/1.35, y+height/1.35);
+	Line2D.Double nose =
+	    new Line2D.Double(x+width/2,y+height/2.2,x+width/2,y+height/1.65);
+	Line2D.Double mouth1 = 
+	    new Line2D.Double(x+width/4.5, y+height/1.35, (x+width/4.5)*.9, (y+height/1.35)*.9);
+	Line2D.Double mouth2 = 
+	    new Line2D.Double(x+width/1.35, y+height/1.35, (x+width/1.35)/.9195, (y+height/1.35)*.9);
+	Ellipse2D.Double eye3 =
+	    new Ellipse2D.Double((x+width/4),y+height/3,width*.1,height*.1);
+	Ellipse2D.Double eye4 =
+	    new Ellipse2D.Double((x+width/1.5),y+height/3,width*.1,height*.1);
 	
 	// add the eyes to the pumpkin
 	// Look up the meaning of the second parameter of append
@@ -47,7 +57,12 @@ public class PumpkinJack extends Pumpkin implements Shape
         GeneralPath wholepumpkin = this.get();
         wholepumpkin.append(eye1, false);
         wholepumpkin.append(eye2, false);
-        wholepumpkin.append(mouth, false); 
+        wholepumpkin.append(mouth, false);
+	wholepumpkin.append(nose, false);
+	wholepumpkin.append(mouth1, false);
+	wholepumpkin.append(mouth2, false);
+	wholepumpkin.append(eye3, false);
+	wholepumpkin.append(eye4,false);
     }
 
 }
