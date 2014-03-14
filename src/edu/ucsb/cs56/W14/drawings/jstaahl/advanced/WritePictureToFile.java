@@ -1,4 +1,4 @@
-package edu.ucsb.cs56.w14.drawings.pconrad.advanced;
+package edu.ucsb.cs56.w14.drawings.jstaahl.advanced;
 import java.awt.image.BufferedImage;
 import java.awt.Graphics2D;
 import java.awt.Color;
@@ -68,7 +68,7 @@ public class WritePictureToFile
      } else if (whichPicture.equals("2")) {
 	 AllMyDrawings.drawPicture2(g2);
      } else if (whichPicture.equals("3")) {
-      	 AllMyDrawings.drawPicture3(g2);
+      	 AllMyDrawings.drawPicture2(g2);
      }
 
      final String imageType = "png"; // choices: "gif", "png", "jpg"
