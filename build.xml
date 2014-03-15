@@ -15,12 +15,14 @@
    
    <property name="webRoot" value="${env.HOME}/public_html/cs56" />
    <property name="webBaseURL" value="http://www.cs.ucsb.edu/~${env.USER}/cs56" />
-   <property name="projectName" value="lab06" /> 
+   <property name="projectName" value="CS56-W14-lab06" /> 
    <property name="javadocDest" value="${webRoot}/${projectName}/javadoc" /> 
    <property name="javadocURL" value="${webBaseURL}/${projectName}/javadoc" /> 
    <property name="imagesDest" value="${webRoot}/${projectName}/images" /> 
    <property name="imagesURL" value="${webBaseURL}/${projectName}/images" /> 
    <property name="javadocLink" value="http://java.sun.com/javase/7/docs/api/" />
+   <property name="studentName" value="edtropiax"/>
+   
    <path id="project.class.path">
          <pathelement location="build"/>
          <pathelement location="lib/junit-4.8.2.jar"/>
@@ -126,6 +128,35 @@
     </java>
   </target>
 
+  <!-- ****************** FOR GRADING HERE ************** -->
+  <target name="gradeMPV3" depends="compile" 
+	  description="run MultiPictureViewer from student subdir with arg 3">
+    <java fork="true" classpathref="project.class.path" classname="${packagePrefix}.${studentName}.advanced.MultiPictureViewer">
+      <arg value="3" />
+    </java>
+  </target>
+
+  <target name="gradeMPV2" depends="compile" 
+	  description="run MultiPictureViewer from student subdir with arg 2">
+    <java fork="true" classpathref="project.class.path" classname="${packagePrefix}.${studentName}.advanced.MultiPictureViewer">
+      <arg value="2" />
+    </java>
+  </target>
+
+  <target name="gradePV" depends="compile" 
+	  description="run from PictureViewer from student subdirectory">
+    <java fork="true" 
+	  classpathref="project.class.path" 
+	  classname="${packagePrefix}.${studentName}.simple.PictureViewer" />
+  </target>
+
+  <target name="gradeSimpleGui1" depends="compile" 
+	  description="run simpleGui1 from student subdirectory">
+    <java fork="true" classpathref="project.class.path" 
+	  classname="${packagePrefix}.${studentName}.SimpleGui1" />
+  </target>
+  <!-- ****************** END GRADING SECTION ************** -->
+
   <target name="pconradWPTF1" depends="compile" 
 	  description="run WritePictureToFile from pconrad;create images/pic1">
     <mkdir dir="images" />
@@ -229,7 +260,7 @@
      <fileset dir="images"/> 
     </copy> 
     
-    <echo>images/mypic1 online at ${imagesURL}/images/mypic1.png</echo>
+    <echo>images/mypic1 online at ${imagesURL}/mypic1.png</echo>
   </target>
 
   <target name="myWPTF2" depends="compile" 
@@ -244,7 +275,7 @@
      <fileset dir="images"/> 
     </copy> 
     
-    <echo>images/mypic2 online at ${imagesURL}/images/mypic2.png</echo>
+    <echo>images/mypic2 online at ${imagesURL}/mypic2.png</echo>
   </target>
   <target name="myWPTF3" depends="compile" 
 	  description="run WritePictureToFile from my code;create images/mypic3">
@@ -258,7 +289,7 @@
      <fileset dir="images"/> 
     </copy> 
     
-    <echo>images/mypic3 online at ${imagesURL}/images/mypic3.png</echo>
+    <echo>images/mypic3 online at ${imagesURL}/mypic3.png</echo>
   </target>
 
 
