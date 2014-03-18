@@ -4,6 +4,8 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 import javax.swing.JComponent;
 
+import edu.ucsb.cs56.w14.drawings.jstaahl.simple.Circle;
+
 // the four tools things we'll use to draw
 
 import java.awt.geom.Line2D;  // single lines
