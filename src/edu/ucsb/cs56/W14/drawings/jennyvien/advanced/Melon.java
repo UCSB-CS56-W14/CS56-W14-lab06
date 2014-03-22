@@ -1,0 +1,77 @@
+package edu.ucsb.cs56.w14.drawings.jennyvien.advanced;
+import java.awt.geom.GeneralPath; // combinations of lines and curves
+import java.awt.geom.AffineTransform; // translation, rotation, scale
+import java.awt.Shape; // general class for shapes
+
+// all imports below this line needed if you are implementing Shape
+import java.awt.geom.Point2D; 
+import java.awt.geom.Rectangle2D;
+import java.awt.Rectangle;
+import java.awt.geom.PathIterator;
+import java.awt.geom.AffineTransform;
+
+import edu.ucsb.cs56.w14.drawings.utilities.ShapeTransforms;
+import edu.ucsb.cs56.w14.drawings.utilities.GeneralPathWrapper;
+/**
+   A melon.
+      
+   @author Phill Conrad 
+   @author Jenny Vien
+   @version for CS56, W14, UCSB, 02/22/2014
+   
+*/
+public class Melon extends GeneralPathWrapper implements Shape
+{
+
+    
+    /**
+     * Constructor for objects of class Melon
+     */
+    final double ORIG_ULX = 0.0; 
+    final double ORIG_ULY = 0.0; 
+    final double ORIG_HEIGHT = 350.0; 
+    final double ORIG_WIDTH = 500.0; 
+    public Melon(double x, double y, double width, double height)
+    {           
+        GeneralPath leftSide = new GeneralPath();
+            
+        leftSide.moveTo(150,350);
+	leftSide.lineTo(50,300);
+        leftSide.lineTo(0,150);
+        leftSide.lineTo(0,0);
+        
+        GeneralPath topAndBottom = new GeneralPath();
+		
+        topAndBottom.moveTo(0,0);
+        topAndBottom.lineTo(500,0); // top of melon
+        
+        topAndBottom.moveTo(150,350);
+        topAndBottom.lineTo(350,350); // bottom of melon
+       
+        Shape rightSide = ShapeTransforms.horizontallyFlippedCopyOf(leftSide);       
+        rightSide = ShapeTransforms.translatedCopyOf(rightSide, 500, 0.0);
+		
+		
+        GeneralPath wholeMelon = new GeneralPath ();
+        wholeMelon.append(topAndBottom, false);
+        wholeMelon.append(leftSide, false);
+        wholeMelon.append(rightSide, false);
+		
+        Shape wholeMelon2 =  ShapeTransforms.scaledCopyOf(wholeMelon,
+							  (ORIG_WIDTH * 0.80)/ORIG_WIDTH,
+							  (ORIG_HEIGHT * 0.80)/ORIG_HEIGHT) ;
+	wholeMelon2 = ShapeTransforms.translatedCopyOf(wholeMelon2, 50,0.0 );
+	wholeMelon.append(wholeMelon2,false);
+		
+		
+	Shape s = ShapeTransforms.translatedCopyOf(wholeMelon, ORIG_ULX + x, ORIG_ULY + y);
+	s =  ShapeTransforms.scaledCopyOf(s,
+					  width/ORIG_WIDTH,
+					  height/ORIG_HEIGHT) ;
+					  
+	
+	this.set(new GeneralPath(s));
+        
+    }
+
+}
