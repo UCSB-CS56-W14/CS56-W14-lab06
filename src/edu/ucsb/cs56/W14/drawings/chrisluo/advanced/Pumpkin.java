@@ -41,15 +41,12 @@ public class Pumpkin extends GeneralPathWrapper implements Shape
         Ellipse2D.Double circle = 
             new Ellipse2D.Double(x,y,width,height);
         
-        Line2D.Double stem = 
-            new Line2D.Double (x+1.25*x,y-0.05*y,x+0.5*x,y+3.5);
-
-        // put the whole house together
+        Line2D.Double stem =
+	    new Line2D.Double (x+width/2,y,x+width/2,y-height/6);
        
         GeneralPath wholePumpkin = this.get();
         wholePumpkin.append(circle, false);
         wholePumpkin.append(stem, false);
         
     }
-
 }

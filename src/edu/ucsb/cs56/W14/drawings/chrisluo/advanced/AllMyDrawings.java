@@ -53,7 +53,7 @@ public class AllMyDrawings
 	g2.draw(p2); 
 	
 	
-	PumpkinJack pj1 = new PumpkinJack(25,25,50,50);
+	PumpkinJack pj1 = new PumpkinJack(150,150,50,50);
         PumpkinJack pj2 = new PumpkinJack(50,50,75,50);
 	
 	g2.draw(pj1);
