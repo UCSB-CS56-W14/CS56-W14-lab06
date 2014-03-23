@@ -15,7 +15,7 @@
    
    <property name="webRoot" value="${env.HOME}/public_html/cs56" />
    <property name="webBaseURL" value="http://www.cs.ucsb.edu/~${env.USER}/cs56" />
-   <property name="projectName" value="lab06" /> 
+   <property name="projectName" value="CS56-W14-lab06" /> 
    <property name="javadocDest" value="${webRoot}/${projectName}/javadoc" /> 
    <property name="javadocURL" value="${webBaseURL}/${projectName}/javadoc" /> 
    <property name="imagesDest" value="${webRoot}/${projectName}/images" /> 
@@ -229,7 +229,7 @@
      <fileset dir="images"/> 
     </copy> 
     
-    <echo>images/mypic1 online at ${imagesURL}/images/mypic1.png</echo>
+    <echo>images/mypic1 online at ${imagesURL}/mypic1.png</echo>
   </target>
 
   <target name="myWPTF2" depends="compile" 
@@ -244,7 +244,7 @@
      <fileset dir="images"/> 
     </copy> 
     
-    <echo>images/mypic2 online at ${imagesURL}/images/mypic2.png</echo>
+    <echo>images/mypic2 online at ${imagesURL}/mypic2.png</echo>
   </target>
   <target name="myWPTF3" depends="compile" 
 	  description="run WritePictureToFile from my code;create images/mypic3">
@@ -258,7 +258,7 @@
      <fileset dir="images"/> 
     </copy> 
     
-    <echo>images/mypic3 online at ${imagesURL}/images/mypic3.png</echo>
+    <echo>images/mypic3 online at ${imagesURL}/mypic3.png</echo>
   </target>
 
 
